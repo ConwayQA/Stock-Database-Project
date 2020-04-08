@@ -1,4 +1,4 @@
 /**
- * This package is used to perform the logic of the application.
+ * This package is the parent of the Stock Database Project.
  */
 package mainer;

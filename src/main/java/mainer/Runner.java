@@ -8,7 +8,7 @@ public class Runner {
 	
 	public static void main(String[] args) {
 		StockManager newManager = new StockManager();
-		newManager.stockSystem();
+		newManager.stockSystemRun();
 		
 	}
 

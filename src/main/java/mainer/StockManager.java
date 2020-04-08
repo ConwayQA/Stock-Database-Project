@@ -6,7 +6,7 @@ public class StockManager {
 	
 	public static final Logger LOGGER = Logger.getLogger(StockManager.class);
 	
-	public void stockSystem() {
+	public void stockSystemRun() {
 		
 	}
 
