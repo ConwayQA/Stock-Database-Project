@@ -2,7 +2,7 @@ package persistance.domain;
 
 public class Customer {
 	
-	public int id;
+	public Long id;
 	public String firstName;
 	public String lastName;
 	public String address;
@@ -13,7 +13,7 @@ public class Customer {
 		super();
 	}
 
-	public Customer(int id, String firstName, String lastName, String address, String email, String postcode) {
+	public Customer(Long id, String firstName, String lastName, String address, String email, String postcode) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -23,11 +23,11 @@ public class Customer {
 		this.postcode = postcode;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -97,6 +97,13 @@ public class Customer {
 				return false;
 			}
 		} else if (!lastName.equals(compareCustomer.lastName)) {
+			return false;
+		}
+		if (id == null) {
+			if(compareCustomer.id != null) {
+				return false;
+			}
+		} else if (!id.equals(compareCustomer.id)) {
 			return false;
 		}
 		if (address == null) {
