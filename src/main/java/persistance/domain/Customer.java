@@ -76,16 +76,53 @@ public class Customer {
 				" Address: " + address + " Email: " + email + " Postcode: " + postcode;
 	}
 	
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Customer compareCustomer = (Customer) obj;
-//		
-//	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer compareCustomer = (Customer) obj;
+		if (firstName == null) {
+			if(compareCustomer.firstName != null) {
+				return false;
+			}
+		} else if (!firstName.equals(compareCustomer.firstName)) {
+			return false;
+		}
+		if (lastName == null) {
+			if(compareCustomer.lastName != null) {
+				return false;
+			}
+		} else if (!lastName.equals(compareCustomer.lastName)) {
+			return false;
+		}
+		if (address == null) {
+			if(compareCustomer.address != null) {
+				return false;
+			}
+		} else if (!address.equals(compareCustomer.address)) {
+			return false;
+		}
+		if (email == null) {
+			if(compareCustomer.email != null) {
+				return false;
+			}
+		} else if (!email.equals(compareCustomer.email)) {
+			return false;
+		}
+		if (postcode == null) {
+			if(compareCustomer.postcode != null) {
+				return false;
+			}
+		} else if (!postcode.equals(compareCustomer.postcode)) {
+			return false;
+		}
+		return true;
+		
+	}
+	
 
 }

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.qa.ConwayQA</groupId>
-  <artifactId>StockDatabaseProject</artifactId>
+  <groupId>com.qa.ims</groupId>
+  <artifactId>LukeConway-SoftwareMarch16</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -39,6 +39,7 @@
 		</dependency>
 	  </dependencies>
 	  <build>
+	  	<finalName>${project.name}</finalName>
 		<plugins>
 		<!-- Creates a jar for the code (does not contain other dependencies which are needed for the project to run out of the box) -->
 			<plugin>
