@@ -49,7 +49,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT FROM items WHERE item_id = " + id);
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id);
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -98,7 +98,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("DELETE FROM items WHERE item_id = " + id);
+			statement.executeUpdate("DELETE * FROM items WHERE item_id = " + id);
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());
@@ -109,7 +109,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT FROM items ORDER BY item_id DESC LIMIT 1");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (SQLException sqle) {

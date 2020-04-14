@@ -47,7 +47,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT FROM customers WHERE customer_id = " + id);
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id);
 			resultSet.next();
 			return customerFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -96,7 +96,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("DELETE FROM customers WHERE customer_id = " + id);
+			statement.executeUpdate("DELETE * FROM customers WHERE customer_id = " + id);
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());
@@ -107,7 +107,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT FROM customers ORDER BY customer_id DESC LIMIT 1");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers ORDER BY customer_id DESC LIMIT 1");
 			resultSet.next();
 			return customerFromResultSet(resultSet);
 		} catch (SQLException sqle) {

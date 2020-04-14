@@ -32,8 +32,11 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM orders");
 			List<Order> orders = new ArrayList<>();
+			Order tempOrder;
 			while (resultSet.next()) {
-				orders.add(orderFromResultSet(resultSet));
+				tempOrder = orderFromResultSet(resultSet);
+				tempOrder.setItemIDs(readItemIDs(orderFromResultSet(resultSet).getId()));
+				orders.add(tempOrder);
 			}
 			return orders;
 		} catch(SQLException sqle) {
@@ -47,9 +50,12 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT FROM orders WHERE order_id = " + id);
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM orders WHERE order_id = " + id);
+			Order tempOrder;
 			resultSet.next();
-			return orderFromResultSet(resultSet);
+			tempOrder = orderFromResultSet(resultSet);
+			tempOrder.setItemIDs(readItemIDs(orderFromResultSet(resultSet).getId()));
+			return tempOrder;
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -65,6 +71,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			statement.executeUpdate("INSERT INTO orders(order_id, customer_id, total_price, date_ordered) VALUES('" + 
 										createOrder.getId() + "','" + createOrder.getCustomerID() + "','" + 
 										createOrder.getTotalPrice() + "','" + createOrder.getDate() + "')");
+			writeOrderItems(createOrder);
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -81,6 +88,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			statement.executeUpdate("UPDATE orders SET name ='" + updateOrder.getId() + "', price ='" + 
 										updateOrder.getCustomerID() + "', genre ='" + updateOrder.getTotalPrice() + "', min_players ='" + 
 										updateOrder.getDate() + "' WHERE item_id =" + updateOrder.getId());
+			writeOrderItems(updateOrder);
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -94,7 +102,8 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("DELETE FROM orders WHERE order_id = " + id);
+			statement.executeUpdate("DELETE * FROM orders WHERE order_id = " + id);
+			statement.executeUpdate("DELETE * FROM order_items WHERE order_id = " + id);
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());
@@ -105,9 +114,12 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT FROM items ORDER BY item_id DESC LIMIT 1");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");
+			Order tempOrder;
 			resultSet.next();
-			return orderFromResultSet(resultSet);
+			tempOrder = orderFromResultSet(resultSet);
+			tempOrder.setItemIDs(readItemIDs(orderFromResultSet(resultSet).getId()));
+			return tempOrder;
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -130,6 +142,20 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			LOGGER.error(sqle.getMessage());
 		}
 		return null;
+	}
+	
+	public void writeOrderItems(Order writeItemsOrder) {
+		try {
+			Connection connection = databaseConnect();
+			Statement statement = connection.createStatement();
+			for (Long itemID:writeItemsOrder.getItemIDs()) {
+				statement.executeUpdate("INSERT INTO order_items(order_id, item_id) VALUES('" + 
+						writeItemsOrder.getId() + "','" + itemID + "')");
+			}
+		} catch (SQLException sqle) {
+			LOGGER.debug(sqle.getStackTrace());
+			LOGGER.error(sqle.getMessage());
+		}
 	}
 	
 }
