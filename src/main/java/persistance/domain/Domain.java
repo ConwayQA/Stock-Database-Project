@@ -10,6 +10,5 @@ public enum Domain {
 	private Domain(String string) {
 		// TODO Auto-generated constructor stub
 	}
-	
 
 }
