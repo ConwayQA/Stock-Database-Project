@@ -12,10 +12,11 @@ public class Order {
 	private BigDecimal totalPrice;
 	private String date;
 	
-	public Order(Long id, Long customerID, BigDecimal totalPrice, String date) {
+	public Order(Long id, Long customerID, List<Long> itemIDs, BigDecimal totalPrice, String date) {
 		super();
 		this.id = id;
 		this.customerID = customerID;
+		this.itemIDs = itemIDs;
 		this.totalPrice = totalPrice;
 		this.date = date;
 	}

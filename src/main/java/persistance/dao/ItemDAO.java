@@ -13,7 +13,8 @@ import org.apache.log4j.Logger;
 import persistance.domain.Item;
 
 public class ItemDAO extends DAOConnect implements DAO<Item> {
-public static final Logger LOGGER = Logger.getLogger(ItemDAO.class);
+	
+	public static final Logger LOGGER = Logger.getLogger(ItemDAO.class);
 	
 	Item itemFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = (long) resultSet.getInt("item_id");
@@ -36,6 +37,7 @@ public static final Logger LOGGER = Logger.getLogger(ItemDAO.class);
 			while (resultSet.next()) {
 				items.add(itemFromResultSet(resultSet));
 			}
+			return items;
 		} catch(SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -77,13 +79,13 @@ public static final Logger LOGGER = Logger.getLogger(ItemDAO.class);
 	@Override
 	public Item update(Item updateItem) {
 		try {
-		Connection connection = databaseConnect();
-		Statement statement = connection.createStatement();
-		statement.executeUpdate("UPDATE items SET name ='" + updateItem.getName() + "', price ='" + 
-									updateItem.getPrice() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
-									updateItem.getMinPlayers() + "', max_players ='" + updateItem.getMaxPlayers() + "', avg_play_time ='" + updateItem.getAvgPlayTime() + 
-									"' WHERE item_id =" + updateItem.getId());
-		return readLast();
+			Connection connection = databaseConnect();
+			Statement statement = connection.createStatement();
+			statement.executeUpdate("UPDATE items SET name ='" + updateItem.getName() + "', price ='" + 
+										updateItem.getPrice() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
+										updateItem.getMinPlayers() + "', max_players ='" + updateItem.getMaxPlayers() + "', avg_play_time ='" + updateItem.getAvgPlayTime() + 
+										"' WHERE item_id =" + updateItem.getId());
+			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());

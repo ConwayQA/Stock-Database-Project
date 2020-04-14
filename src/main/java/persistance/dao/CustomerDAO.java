@@ -35,6 +35,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 			while (resultSet.next()) {
 				customers.add(customerFromResultSet(resultSet));
 			}
+			return customers;
 		} catch(SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -76,13 +77,13 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	@Override
 	public Customer update(Customer updateCustomer) {
 		try {
-		Connection connection = databaseConnect();
-		Statement statement = connection.createStatement();
-		statement.executeUpdate("UPDATE customers SET first_name ='" + updateCustomer.getFirstName() + "', last_name ='" + 
-									updateCustomer.getLastName() + "', address ='" + updateCustomer.getAddress() + "', email ='" + 
-									updateCustomer.getEmail() + "', postcode ='" + updateCustomer.getPostcode() + "' WHERE customer_id =" + 
-									updateCustomer.getId());
-		return readLast();
+			Connection connection = databaseConnect();
+			Statement statement = connection.createStatement();
+			statement.executeUpdate("UPDATE customers SET first_name ='" + updateCustomer.getFirstName() + "', last_name ='" + 
+										updateCustomer.getLastName() + "', address ='" + updateCustomer.getAddress() + "', email ='" + 
+										updateCustomer.getEmail() + "', postcode ='" + updateCustomer.getPostcode() + "' WHERE customer_id =" + 
+										updateCustomer.getId());
+			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
