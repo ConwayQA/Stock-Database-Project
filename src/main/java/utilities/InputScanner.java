@@ -9,6 +9,7 @@ public class InputScanner {
 	}
 	
 	public static String getInput() {
+		@SuppressWarnings("resource")
 		Scanner inputScanner = new Scanner(System.in);
 		return inputScanner.nextLine();
 	}
