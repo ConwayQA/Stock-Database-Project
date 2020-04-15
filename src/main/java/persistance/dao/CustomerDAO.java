@@ -27,9 +27,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public List<Customer> readAll() {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers");
 			List<Customer> customers = new ArrayList<>();
 			while (resultSet.next()) {
@@ -45,9 +43,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	
 	@Override
 	public Customer read(Long id) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id);
 			resultSet.next();
 			return customerFromResultSet(resultSet);
@@ -60,9 +56,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public Customer create(Customer createCustomer) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("INSERT INTO customers(first_name, last_name, address, email, postcode) VALUES('" + 
 										createCustomer.getFirstName() + "','" + createCustomer.getLastName() + "','" + 
 										createCustomer.getAddress() + "','" + createCustomer.getEmail() + "','" + 
@@ -77,9 +71,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public Customer update(Customer updateCustomer) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE customers SET first_name ='" + updateCustomer.getFirstName() + "', last_name ='" + 
 										updateCustomer.getLastName() + "', address ='" + updateCustomer.getAddress() + "', email ='" + 
 										updateCustomer.getEmail() + "', postcode ='" + updateCustomer.getPostcode() + "' WHERE customer_id =" + 
@@ -94,9 +86,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public void delete(Long id) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("DELETE * FROM customers WHERE customer_id = " + id);
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
@@ -105,9 +95,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	}
 	
 	public Customer readLast() {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers ORDER BY customer_id DESC LIMIT 1");
 			resultSet.next();
 			return customerFromResultSet(resultSet);

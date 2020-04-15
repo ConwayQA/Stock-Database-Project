@@ -82,6 +82,19 @@ public class Order {
 	public void setItemIDs(List<Long> itemIDs) {
 		this.itemIDs = itemIDs;
 	}
+	
+	//Method from christophperrins to override hashcode()
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((customerID == null) ? 0 : customerID.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((itemIDs == null) ? 0 : itemIDs.hashCode());
+		result = prime * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
+		return result;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -120,11 +133,6 @@ public class Order {
 		} else if (!date.equals(compareOrder.date)) {
 			return false;
 		}
-		if (itemIDs == null) {
-			if(compareOrder.itemIDs != null) {
-				return false;
-			}
-		} 
 		if (itemIDs.isEmpty()) {
 			if(!compareOrder.itemIDs.isEmpty()){
 				return false;

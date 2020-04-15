@@ -29,9 +29,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public List<Item> readAll() {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM items");
 			List<Item> items = new ArrayList<>();
 			while (resultSet.next()) {
@@ -47,9 +45,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	
 	@Override
 	public Item read(Long id) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id);
 			resultSet.next();
 			return itemFromResultSet(resultSet);
@@ -62,9 +58,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public Item create(Item createItem) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time) VALUES('" + 
 										createItem.getName() + "','" + createItem.getPrice() + "','" + 
 										createItem.getGenre() + "','" + createItem.getMinPlayers() + "','" + 
@@ -79,9 +73,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public Item update(Item updateItem) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE items SET name ='" + updateItem.getName() + "', price ='" + 
 										updateItem.getPrice() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
 										updateItem.getMinPlayers() + "', max_players ='" + updateItem.getMaxPlayers() + "', avg_play_time ='" + updateItem.getAvgPlayTime() + 
@@ -96,9 +88,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public void delete(Long id) {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("DELETE * FROM items WHERE item_id = " + id);
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
@@ -107,9 +97,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	}
 	
 	public Item readLast() {
-		try {
-			Connection connection = databaseConnect();
-			Statement statement = connection.createStatement();
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");
 			resultSet.next();
 			return itemFromResultSet(resultSet);
