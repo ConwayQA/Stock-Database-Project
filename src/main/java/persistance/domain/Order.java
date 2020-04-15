@@ -1,6 +1,7 @@
 package persistance.domain;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,30 @@ public class Order {
 	private Long customerID;
 	private List<Long> itemIDs = new ArrayList<>();
 	private BigDecimal totalPrice;
-	private String date;
+	private LocalDate date;
 	
-	public Order(Long id, Long customerID, List<Long> itemIDs, BigDecimal totalPrice, String date) {
+	public Order(Long id, Long customerID, List<Long> itemIDs) {
+		super();
+		this.id = id;
+		this.customerID = customerID;
+		this.itemIDs = itemIDs;
+	}
+	
+	public Order(Long customerID, List<Long> itemIDs) {
+		super();
+		this.customerID = customerID;
+		this.itemIDs = itemIDs;
+	}
+	
+	public Order(Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date) {
+		super();
+		this.customerID = customerID;
+		this.itemIDs = itemIDs;
+		this.totalPrice = totalPrice;
+		this.date = date;
+	}
+	
+	public Order(Long id, Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date) {
 		super();
 		this.id = id;
 		this.customerID = customerID;
@@ -45,11 +67,11 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	

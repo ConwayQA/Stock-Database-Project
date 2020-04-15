@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -21,7 +24,8 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		Long customerID = (long) resultSet.getInt("customer_id");
 		List<Long> itemIDs = readItemIDs(id);
 		BigDecimal totalPrice = BigDecimal.valueOf(resultSet.getDouble("total_price"));
-		String date = resultSet.getDate("date_ordered").toString();
+		LocalDate date = (resultSet.getDate("date_ordered")).toLocalDate();
+		
 		return new Order(id, customerID, itemIDs, totalPrice, date);
 	}
 
@@ -65,12 +69,19 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 
 	@Override
 	public Order create(Order createOrder) {
+		if (createOrder.getTotalPrice() == null) {
+			createOrder.setTotalPrice(calcTotalPrice(createOrder.getItemIDs()));
+		}
+		if (createOrder.getDate() == null) {
+			createOrder.setDate(LocalDate.now());
+		}
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("INSERT INTO orders(order_id, customer_id, total_price, date_ordered) VALUES('" + 
 										createOrder.getId() + "','" + createOrder.getCustomerID() + "','" + 
 										createOrder.getTotalPrice() + "','" + createOrder.getDate() + "')");
+			
 			writeOrderItems(createOrder);
 			return readLast();
 		} catch (SQLException sqle) {
@@ -82,6 +93,12 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 
 	@Override
 	public Order update(Order updateOrder) {
+		if (updateOrder.getTotalPrice() == null) {
+			updateOrder.setTotalPrice(calcTotalPrice(updateOrder.getItemIDs()));
+		}
+		if (updateOrder.getDate() == null) {
+			updateOrder.setDate(LocalDate.now());
+		}
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
@@ -156,6 +173,22 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
 		}
+	}
+	
+	public BigDecimal calcTotalPrice(List<Long> itemIDs) {
+		BigDecimal total = new BigDecimal(0);
+		for (Long id: itemIDs) {
+			try {
+				Connection connection = databaseConnect();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("SELECT price FROM items WHERE item_id = " + id + "LIMIT 1");
+					total = total.add(BigDecimal.valueOf(resultSet.getLong(1)));
+			} catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
+		}
+		return total;
 	}
 	
 }

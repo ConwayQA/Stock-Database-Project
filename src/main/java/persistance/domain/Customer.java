@@ -13,6 +13,15 @@ public class Customer {
 		super();
 	}
 
+	public Customer(String firstName, String lastName, String address, String email, String postcode) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.email = email;
+		this.postcode = postcode;
+	}
+	
 	public Customer(Long id, String firstName, String lastName, String address, String email, String postcode) {
 		super();
 		this.id = id;

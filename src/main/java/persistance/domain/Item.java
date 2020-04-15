@@ -12,6 +12,16 @@ public class Item {
 	private Long maxPlayers;
 	private Long avgPlayTime;
 	
+	public Item(String name, BigDecimal price, String genre, Long minPlayers, Long maxPlayers, Long avgPlayTime) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.genre = genre;
+		this.minPlayers = minPlayers;
+		this.maxPlayers = maxPlayers;
+		this.avgPlayTime = avgPlayTime;
+	}
+	
 	public Item(Long id, String name, BigDecimal price, String genre, Long minPlayers, Long maxPlayers, Long avgPlayTime) {
 		super();
 		this.id = id;
