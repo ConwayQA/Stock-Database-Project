@@ -2,12 +2,12 @@ package persistance.domain;
 
 public class Customer {
 	
-	public Long id;
-	public String firstName;
-	public String lastName;
-	public String address;
-	public String email;
-	public String postcode;
+	private Long id;
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String email;
+	private String postcode;
 	
 	public Customer() {
 		super();
