@@ -43,7 +43,8 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 		return null;
 	}
 	
-	public Customer readCustomer(Long id) {
+	@Override
+	public Customer read(Long id) {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
@@ -92,7 +93,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(Long id) {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();

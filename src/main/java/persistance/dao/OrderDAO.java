@@ -50,7 +50,8 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		return null;
 	}
 	
-	public Order readItem(Long id) {
+	@Override
+	public Order read(Long id) {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
@@ -115,7 +116,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(Long id) {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
@@ -190,5 +191,6 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		}
 		return total;
 	}
+
 	
 }

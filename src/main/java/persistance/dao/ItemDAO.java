@@ -45,7 +45,8 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		return null;
 	}
 	
-	public Item readItem(Long id) {
+	@Override
+	public Item read(Long id) {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();
@@ -94,7 +95,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(Long id) {
 		try {
 			Connection connection = databaseConnect();
 			Statement statement = connection.createStatement();

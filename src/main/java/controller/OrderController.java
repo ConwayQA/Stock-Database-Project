@@ -32,11 +32,19 @@ public class OrderController implements CrudController<Order>{
 		}
 		return allOrders;
 	}
+	
+	public Order read() {
+		LOGGER.info("Please enter the order's ID: ");
+		Long orderID = Long.getLong(getInput());
+		Order singleOrder = orderServices.read(orderID);
+		LOGGER.info(singleOrder.toString());
+		return singleOrder;
+	}
 
 	@Override
 	public Order create() {
-		LOGGER.info("Please enter the customer's ID: ");
-		Long customerID = Long.getLong(getInput());
+		LOGGER.info("Please enter the order's ID: ");
+		Long orderID = Long.getLong(getInput());
 		LOGGER.info("Please enter the number of items being ordered: ");
 		Long numOfItems =  Long.getLong(getInput());
 		List<Long> itemIDs = new ArrayList<>();
@@ -44,7 +52,7 @@ public class OrderController implements CrudController<Order>{
 			LOGGER.info("Please enter the ID of item number " + i + ": ");
 			itemIDs.add(Long.getLong(getInput()));
 		}
-		Order order = orderServices.create(new Order(customerID, itemIDs));
+		Order order = orderServices.create(new Order(orderID, itemIDs));
 		LOGGER.info("Order created.");
 		return order;
 	}
@@ -69,7 +77,7 @@ public class OrderController implements CrudController<Order>{
 
 	@Override
 	public void delete() {
-		LOGGER.info("Please enter the id of the customer you would like to delete");
+		LOGGER.info("Please enter the id of the order you would like to delete");
 		Long id = Long.valueOf(getInput());
 		orderServices.delete(id);
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import persistance.dao.DAO;
 import persistance.domain.Item;
+import persistance.domain.Order;
 
 public class ItemServices implements CrudService<Item>{
 	
@@ -13,6 +14,11 @@ public class ItemServices implements CrudService<Item>{
 		this.itemDAO = itemDAO;
 	}
 
+	@Override
+	public Item read(Long id) {
+		return itemDAO.read(id);
+	}
+	
 	@Override
 	public List<Item> readAll() {
 		return itemDAO.readAll();
