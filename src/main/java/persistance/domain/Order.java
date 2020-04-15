@@ -140,7 +140,7 @@ public class Order {
 		} else {
 			try {
 				for (int i = 0; i < itemIDs.size(); i++) {
-					if (!(itemIDs.get(i) == compareOrder.itemIDs.get(i))) {
+					if (itemIDs.get(i) != compareOrder.itemIDs.get(i)) {
 						return false;
 					}
 				}

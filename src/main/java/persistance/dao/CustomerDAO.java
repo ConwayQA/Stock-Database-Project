@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -27,8 +28,8 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public List<Customer> readAll() {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers");
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers");) {
 			List<Customer> customers = new ArrayList<>();
 			while (resultSet.next()) {
 				customers.add(customerFromResultSet(resultSet));
@@ -38,13 +39,13 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
 		}
-		return null;
+		return Collections.emptyList();
 	}
 	
 	@Override
 	public Customer read(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id);
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id);) {
 			resultSet.next();
 			return customerFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -61,6 +62,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 										createCustomer.getFirstName() + "','" + createCustomer.getLastName() + "','" + 
 										createCustomer.getAddress() + "','" + createCustomer.getEmail() + "','" + 
 										createCustomer.getPostcode() + "')");
+			
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -95,8 +97,8 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	}
 	
 	public Customer readLast() {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers ORDER BY customer_id DESC LIMIT 1");
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers ORDER BY customer_id DESC LIMIT 1");) {
 			resultSet.next();
 			return customerFromResultSet(resultSet);
 		} catch (SQLException sqle) {

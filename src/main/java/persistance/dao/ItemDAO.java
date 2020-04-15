@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -29,8 +30,8 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public List<Item> readAll() {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items");
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items");) {
 			List<Item> items = new ArrayList<>();
 			while (resultSet.next()) {
 				items.add(itemFromResultSet(resultSet));
@@ -40,13 +41,13 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
 		}
-		return null;
+		return Collections.emptyList();
 	}
 	
 	@Override
 	public Item read(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id);
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id);) {
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -97,8 +98,8 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	}
 	
 	public Item readLast() {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");) {
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (SQLException sqle) {

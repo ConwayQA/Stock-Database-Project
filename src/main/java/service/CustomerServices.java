@@ -4,7 +4,6 @@ import java.util.List;
 
 import persistance.dao.DAO;
 import persistance.domain.Customer;
-import persistance.domain.Order;
 
 public class CustomerServices implements CrudService<Customer>{
 	

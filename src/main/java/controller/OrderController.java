@@ -1,6 +1,5 @@
 package controller;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ import utilities.InputScanner;
 
 public class OrderController implements CrudController<Order>{
 	
-	public static final Logger LOGGER = Logger.getLogger(CustomerController.class);
+	public static final Logger LOGGER = Logger.getLogger(OrderController.class);
 	
 	private CrudService<Order> orderServices;
 	
