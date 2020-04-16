@@ -83,6 +83,12 @@ public class Order {
 		this.itemIDs = itemIDs;
 	}
 	
+	@Override
+	public String toString() {
+		return "Order ID: " + id + " Customer ID: " + customerID + " Total Price: £" + totalPrice +
+				" Date Ordered: " + date ;
+	}
+	
 	//Method from christophperrins to override hashcode()
 	@Override
 	public int hashCode() {

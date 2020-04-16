@@ -73,7 +73,8 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		}
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("INSERT INTO orders(customer_id, total_price, date_ordered) VALUES('" + 
-										createOrder.getCustomerID().intValue() + "','" + createOrder.getTotalPrice() + "','" + createOrder.getDate() + "')");
+										createOrder.getCustomerID().intValue() + "','" + createOrder.getTotalPrice().doubleValue() +
+										"','" + createOrder.getDate() + "')");
 			
 			writeOrderItems(createOrder);
 			return readLast();
@@ -94,7 +95,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		}
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE orders SET customer_id ='" + updateOrder.getCustomerID().intValue() + "', total_price ='" + 
-										updateOrder.getTotalPrice() + "', date_ordered ='" + updateOrder.getDate() + 
+										updateOrder.getTotalPrice().doubleValue() + "', date_ordered ='" + updateOrder.getDate() + 
 										"' WHERE item_id =" + updateOrder.getId().intValue());
 			writeOrderItems(updateOrder);
 			return readLast();
@@ -118,7 +119,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	
 	public Order readLast() {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items ORDER BY item_id DESC LIMIT 1");) {
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM orders ORDER BY order_id DESC LIMIT 1");) {
 			Order tempOrder;
 			resultSet.next();
 			tempOrder = orderFromResultSet(resultSet);
@@ -150,7 +151,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			for (Long itemID:writeItemsOrder.getItemIDs()) {
 				statement.executeUpdate("INSERT INTO order_items(order_id, item_id) VALUES('" + 
-						writeItemsOrder.getId() + "','" + itemID + "')");
+						writeItemsOrder.getId().intValue() + "','" + itemID.intValue() + "')");
 			}
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());

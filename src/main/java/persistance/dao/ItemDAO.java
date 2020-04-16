@@ -61,7 +61,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	public Item create(Item createItem) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time) VALUES('" + 
-										createItem.getName() + "','" + createItem.getPrice() + "','" + 
+										createItem.getName() + "','" + createItem.getPrice().doubleValue() + "','" + 
 										createItem.getGenre() + "','" + createItem.getMinPlayers().intValue() + "','" + 
 										createItem.getMaxPlayers().intValue() + "','" + createItem.getAvgPlayTime().intValue() + "')");
 			return readLast();
@@ -76,10 +76,10 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	public Item update(Item updateItem) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE items SET name ='" + updateItem.getName() + "', price ='" + 
-										updateItem.getPrice() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
+										updateItem.getPrice().doubleValue() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
 										updateItem.getMinPlayers().intValue() + "', max_players ='" + updateItem.getMaxPlayers().intValue() +
 										"', avg_play_time ='" + updateItem.getAvgPlayTime().intValue() + 
-										"' WHERE item_id =" + updateItem.getId());
+										"' WHERE item_id =" + updateItem.getId().intValue());
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());

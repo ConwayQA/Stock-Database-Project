@@ -45,7 +45,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	@Override
 	public Customer read(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id);) {
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id.intValue());) {
 			resultSet.next();
 			return customerFromResultSet(resultSet);
 		} catch (SQLException sqle) {

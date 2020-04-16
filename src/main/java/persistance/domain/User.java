@@ -6,6 +6,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String username;
+	private boolean loggedIn = false;
 	
 	public User(String firstName, String lastName, String username) {
 		super();
@@ -54,6 +55,18 @@ public class User {
 		this.username = username;
 	}
 	
-	
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
+	@Override
+	public String toString() {
+		return "User ID: " + userID + " First Name: " + firstName + " Last Name: " + lastName +
+				" Username: " + username;
+	}
 
 }
