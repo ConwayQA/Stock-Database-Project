@@ -35,7 +35,7 @@ public class OrderController implements CrudController<Order>{
 	@Override
 	public Order read() {
 		LOGGER.info("Please enter the order's ID: ");
-		Long orderID = Long.getLong(getInput());
+		Long orderID = Long.valueOf((getInput()));
 		Order singleOrder = orderServices.read(orderID);
 		LOGGER.info(singleOrder.toString());
 		return singleOrder;
@@ -44,13 +44,13 @@ public class OrderController implements CrudController<Order>{
 	@Override
 	public Order create() {
 		LOGGER.info("Please enter the order's ID: ");
-		Long orderID = Long.getLong(getInput());
+		Long orderID = Long.valueOf((getInput()));
 		LOGGER.info("Please enter the number of items being ordered: ");
-		Long numOfItems =  Long.getLong(getInput());
+		Long numOfItems =  Long.valueOf((getInput()));
 		List<Long> itemIDs = new ArrayList<>();
 		for (int i = 1; i <= numOfItems; i++) {
 			LOGGER.info("Please enter the ID of item number " + i + ": ");
-			itemIDs.add(Long.getLong(getInput()));
+			itemIDs.add(Long.valueOf((getInput())));
 		}
 		Order order = orderServices.create(new Order(orderID, itemIDs));
 		LOGGER.info("Order created.");
@@ -62,13 +62,13 @@ public class OrderController implements CrudController<Order>{
 		LOGGER.info("Please enter the id of the order you would like to update");
 		Long id = Long.valueOf(getInput());
 		LOGGER.info("Please enter the customer's ID: ");
-		Long customerID = Long.getLong(getInput());
+		Long customerID = Long.valueOf((getInput()));
 		LOGGER.info("Please enter the number of items being ordered: ");
-		Long numOfItems =  Long.getLong(getInput());
+		Long numOfItems =  Long.valueOf((getInput()));
 		List<Long> itemIDs = new ArrayList<>();
 		for (int i = 1; i <= numOfItems; i++) {
 			LOGGER.info("Please enter the ID of item number " + i + ": ");
-			itemIDs.add(Long.getLong(getInput()));
+			itemIDs.add(Long.valueOf((getInput())));
 		}
 		Order order = orderServices.create(new Order(id, customerID, itemIDs));
 		LOGGER.info("Order created.");

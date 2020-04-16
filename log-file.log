@@ -295,3 +295,353 @@
 2020-04-15 17:28:51 INFO  CustomerController:37 - Please enter the customer's ID: 
 2020-04-15 17:28:53 DEBUG CustomerDAO:52 - [Ljava.lang.StackTraceElement;@69b794e2
 2020-04-15 17:28:53 ERROR CustomerDAO:53 - Illegal operation on empty result set.
+2020-04-16 09:42:53 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:42:57 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:43:10 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:43:10 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:43:10 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:43:10 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:43:10 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:43:10 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:43:13 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:43:13 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:43:13 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:43:13 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:43:13 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:43:13 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:43:13 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:43:16 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 09:46:16 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:46:19 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:46:20 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:46:20 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:46:20 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:46:20 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:46:20 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:46:20 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:46:23 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:46:23 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:46:23 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:46:23 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:46:23 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:46:23 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:46:23 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:46:26 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 09:47:06 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:47:10 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:47:13 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:47:13 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:47:13 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:47:13 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:47:13 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:47:13 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:47:15 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:47:15 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:47:15 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:47:15 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:47:15 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:47:15 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:47:15 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:47:18 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 09:47:20 DEBUG CustomerDAO:52 - [Ljava.lang.StackTraceElement;@5a4aa2f2
+2020-04-16 09:47:20 ERROR CustomerDAO:53 - Illegal operation on empty result set.
+2020-04-16 09:50:28 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:50:30 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:50:32 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:50:32 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:50:32 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:50:32 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:50:32 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:50:32 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:50:34 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:50:34 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:50:34 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:50:34 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:50:34 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:50:34 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:50:34 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:51:42 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 09:52:35 DEBUG CustomerDAO:52 - [Ljava.lang.StackTraceElement;@16c069df
+2020-04-16 09:52:35 ERROR CustomerDAO:53 - Illegal operation on empty result set.
+2020-04-16 09:53:14 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:53:17 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:53:18 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:53:18 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:53:18 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:53:18 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:53:18 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:53:18 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:53:21 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:53:21 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:53:21 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:53:21 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:53:21 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:53:21 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:53:21 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:53:23 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 09:53:34 DEBUG CustomerDAO:52 - [Ljava.lang.StackTraceElement;@5a4aa2f2
+2020-04-16 09:53:34 ERROR CustomerDAO:53 - Illegal operation on empty result set.
+2020-04-16 09:53:58 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:54:01 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:54:03 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:54:03 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:54:03 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:54:03 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:54:03 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:54:03 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:54:06 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:54:06 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:54:06 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:54:06 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:54:06 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:54:06 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:54:06 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:54:22 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 09:55:20 DEBUG CustomerDAO:52 - [Ljava.lang.StackTraceElement;@2bec854f
+2020-04-16 09:55:27 ERROR CustomerDAO:53 - Illegal operation on empty result set.
+2020-04-16 09:56:19 INFO  StockManager:26 - Enter Admin username
+2020-04-16 09:56:22 INFO  StockManager:28 - Enter Admin password
+2020-04-16 09:56:25 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 09:56:25 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 09:56:25 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 09:56:25 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 09:56:25 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 09:56:25 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 09:56:30 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 09:56:30 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 09:56:30 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 09:56:30 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 09:56:30 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 09:56:30 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 09:56:30 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 09:56:40 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 10:02:24 INFO  StockManager:26 - Enter Admin username
+2020-04-16 10:02:26 INFO  StockManager:28 - Enter Admin password
+2020-04-16 10:02:28 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:02:28 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:02:28 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:02:28 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:02:28 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:02:28 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:02:33 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 10:02:33 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 10:02:33 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 10:02:33 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 10:02:33 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 10:02:33 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 10:02:33 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 10:02:47 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 10:03:23 INFO  StockManager:26 - Enter Admin username
+2020-04-16 10:03:27 INFO  StockManager:28 - Enter Admin password
+2020-04-16 10:03:28 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:03:28 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:03:28 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:03:28 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:03:28 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:03:28 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:03:30 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 10:03:30 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 10:03:30 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 10:03:30 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 10:03:30 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 10:03:30 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 10:03:30 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 10:03:37 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 10:06:07 INFO  StockManager:26 - Enter Admin username
+2020-04-16 10:06:09 INFO  StockManager:28 - Enter Admin password
+2020-04-16 10:06:10 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:06:10 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:06:10 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:06:10 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:06:10 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:06:10 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:06:13 INFO  StockManager:44 - What would you like to do with customer:
+2020-04-16 10:06:13 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 10:06:13 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 10:06:13 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 10:06:13 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 10:06:13 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 10:06:13 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 10:06:21 INFO  CustomerController:37 - Please enter the customer's ID: 
+2020-04-16 10:06:34 INFO  CustomerController:40 - ID: 1 First Name: Luke Last Name: Conway Address: 32 suck it road Email: lconway@stickit.com Postcode: ht457np
+2020-04-16 10:06:34 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:06:34 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:06:34 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:06:34 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:06:34 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:06:34 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:23:01 INFO  StockManager:26 - Enter Admin username
+2020-04-16 10:23:06 INFO  StockManager:28 - Enter Admin password
+2020-04-16 10:23:19 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:23:19 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:23:19 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:23:19 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:23:19 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:23:19 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:23:29 INFO  StockManager:44 - What would you like to do with items:
+2020-04-16 10:23:29 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 10:23:29 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 10:23:29 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 10:23:29 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 10:23:29 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 10:23:29 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 10:24:33 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-16 10:24:35 DEBUG ItemDAO:54 - [Ljava.lang.StackTraceElement;@5a4aa2f2
+2020-04-16 10:24:35 ERROR ItemDAO:55 - Illegal operation on empty result set.
+2020-04-16 10:29:12 INFO  StockManager:26 - Enter Admin username
+2020-04-16 10:29:16 INFO  StockManager:28 - Enter Admin password
+2020-04-16 10:29:17 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:29:17 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:29:17 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:29:17 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:29:17 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:29:17 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:53:34 INFO  StockManager:26 - Enter Admin username
+2020-04-16 10:53:37 INFO  StockManager:28 - Enter Admin password
+2020-04-16 10:53:43 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:53:43 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:53:43 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:53:43 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:53:43 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:53:43 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:53:55 INFO  StockManager:44 - What would you like to do with items:
+2020-04-16 10:53:55 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 10:53:55 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 10:53:55 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 10:53:55 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 10:53:55 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 10:53:55 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 10:53:59 INFO  ItemController:70 - Please enter the items name: 
+2020-04-16 10:54:06 INFO  ItemController:72 - Please enter the items price: 
+2020-04-16 10:54:10 INFO  ItemController:74 - Please enter the items genre: 
+2020-04-16 10:54:19 INFO  ItemController:76 - Please enter the items minimum number of players: 
+2020-04-16 10:54:21 INFO  ItemController:78 - Please enter the items maximum number of players: 
+2020-04-16 10:54:24 INFO  ItemController:80 - Please enter the average play time (Minutes): 
+2020-04-16 10:54:28 INFO  ItemController:48 - Item created.
+2020-04-16 10:54:28 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:54:28 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:54:28 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:54:28 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:54:28 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:54:28 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 10:54:35 ERROR Domain:40 - Invalid selection please try again
+2020-04-16 10:54:38 INFO  StockManager:44 - What would you like to do with items:
+2020-04-16 10:54:38 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 10:54:38 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 10:54:38 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 10:54:38 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 10:54:38 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 10:54:38 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 10:54:43 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-16 10:54:45 INFO  ItemController:40 - persistance.domain.Item@b6ed5048
+2020-04-16 10:54:45 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 10:54:45 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 10:54:45 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 10:54:45 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 10:54:45 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 10:54:45 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 11:01:59 INFO  StockManager:26 - Enter Admin username
+2020-04-16 11:02:01 INFO  StockManager:28 - Enter Admin password
+2020-04-16 11:02:06 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 11:02:06 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 11:02:06 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 11:02:06 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 11:02:06 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 11:02:06 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 11:02:11 INFO  StockManager:44 - What would you like to do with items:
+2020-04-16 11:02:11 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 11:02:11 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 11:02:11 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 11:02:11 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 11:02:11 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 11:02:11 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 11:02:13 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-16 11:02:14 INFO  ItemController:40 - ID: 1 Name: Carcassonne price: 30.0 genre: Tile Based minimum number of players: 2 maximum number of players: 12 average play time: 30
+2020-04-16 11:02:14 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 11:02:14 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 11:02:14 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 11:02:14 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 11:02:14 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 11:02:14 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 11:02:52 INFO  StockManager:26 - Enter Admin username
+2020-04-16 11:02:54 INFO  StockManager:28 - Enter Admin password
+2020-04-16 11:02:55 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 11:02:55 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 11:02:55 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 11:02:55 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 11:02:55 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 11:02:55 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 11:02:57 INFO  StockManager:44 - What would you like to do with items:
+2020-04-16 11:02:57 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 11:02:57 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 11:02:57 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 11:02:57 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 11:02:57 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 11:02:57 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 11:02:59 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-16 11:03:01 INFO  ItemController:40 - ID: 1 Name: Carcassonne price: £30.0 genre: Tile Based minimum number of players: 2 maximum number of players: 12 average play time: 30
+2020-04-16 11:03:01 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 11:03:01 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 11:03:01 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 11:03:01 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 11:03:01 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 11:03:01 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 11:03:34 INFO  StockManager:44 - What would you like to do with end:
+2020-04-16 11:03:34 INFO  ControllerActions:30 - CREATE: To save a new record to the database
+2020-04-16 11:03:34 INFO  ControllerActions:30 - READ: To read a record from the database
+2020-04-16 11:03:34 INFO  ControllerActions:30 - READALL: To read all records from the database
+2020-04-16 11:03:34 INFO  ControllerActions:30 - UPDATE: To update a record on the database with new information
+2020-04-16 11:03:34 INFO  ControllerActions:30 - DELETE: To remove a record from the database
+2020-04-16 11:03:34 INFO  ControllerActions:30 - RETURN: To return to table selection
+2020-04-16 11:12:10 INFO  StockManager:26 - Enter Admin username
+2020-04-16 11:12:12 INFO  StockManager:28 - Enter Admin password
+2020-04-16 11:12:14 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 11:12:14 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 11:12:14 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 11:12:14 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 11:12:14 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 11:12:14 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 11:12:32 INFO  StockManager:26 - Enter Admin username
+2020-04-16 11:12:33 INFO  StockManager:28 - Enter Admin password
+2020-04-16 11:12:43 INFO  StockManager:40 - Which entity would you like to use?
+2020-04-16 11:12:43 INFO  Domain:29 - CUSTOMER: Information on store customers
+2020-04-16 11:12:43 INFO  Domain:29 - ITEMS: Details on items in stock
+2020-04-16 11:12:43 INFO  Domain:29 - ORDERS: Collection of customers purchases of items
+2020-04-16 11:12:43 INFO  Domain:29 - USERS: Information on staff users of the system
+2020-04-16 11:12:43 INFO  Domain:29 - END: Closes the application once you are done
+2020-04-16 13:00:28 INFO  StockManager:35 - Enter Admin username
+2020-04-16 13:00:31 INFO  StockManager:37 - Enter Admin password
+2020-04-16 13:00:43 INFO  UserController:20 - Enter Username: 
+2020-04-16 13:00:48 INFO  UserController:22 - Enter Username: 
+2020-04-16 13:00:56 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-16 13:00:56 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-16 13:03:14 INFO  StockManager:35 - Enter Admin username
+2020-04-16 13:03:18 INFO  StockManager:37 - Enter Admin password
+2020-04-16 13:03:20 INFO  UserController:20 - Enter Username: 
+2020-04-16 13:03:24 INFO  UserController:22 - Enter Username: 
+2020-04-16 13:03:29 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-16 13:03:29 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-16 13:09:17 INFO  StockManager:35 - Enter Admin username
+2020-04-16 13:09:24 INFO  StockManager:37 - Enter Admin password
+2020-04-16 13:09:25 INFO  UserController:20 - Enter Username: 
+2020-04-16 13:09:34 INFO  UserController:22 - Enter Username: 
+2020-04-16 13:09:39 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-16 13:09:39 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-16 13:10:48 INFO  StockManager:35 - Enter Admin username
+2020-04-16 13:10:52 INFO  StockManager:37 - Enter Admin password
+2020-04-16 13:10:54 INFO  UserController:20 - Enter Username: 
+2020-04-16 13:10:57 INFO  UserController:22 - Enter Username: 
+2020-04-16 13:11:01 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-16 13:11:01 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-16 14:00:48 INFO  StockManager:35 - Enter Admin username
+2020-04-16 14:00:57 INFO  StockManager:37 - Enter Admin password
+2020-04-16 14:00:58 INFO  UserController:20 - Enter Username: 
+2020-04-16 14:01:01 INFO  UserController:22 - Enter Username: 
+2020-04-16 14:01:07 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-16 14:01:07 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''admin' at line 1
+2020-04-16 14:02:08 INFO  StockManager:35 - Enter Admin username
+2020-04-16 14:02:11 INFO  StockManager:37 - Enter Admin password
+2020-04-16 14:02:13 INFO  UserController:20 - Enter Username: 
+2020-04-16 14:02:19 INFO  UserController:22 - Enter Username: 
+2020-04-16 14:02:27 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-16 14:02:27 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''admin' at line 1

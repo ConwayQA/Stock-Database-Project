@@ -76,6 +76,14 @@ public class Item {
 		this.avgPlayTime = avgPlayTime;
 	}
 	
+	@Override
+	public String toString() {
+		return "ID: " + id + " Name: " + name + " price: £" + price +
+				" genre: " + genre + " minimum number of players: " + minPlayers + 
+				" maximum number of players: " + maxPlayers + " average play time: " +
+				avgPlayTime;
+	}
+	
 	//Method from christophperrins to override hashcode()
 	@Override
 	public int hashCode() {

@@ -80,6 +80,7 @@ public class Customer {
 		this.postcode = postcode;
 	}
 	
+	@Override
 	public String toString() {
 		return "ID: " + id + " First Name: " + firstName + " Last Name: " + lastName +
 				" Address: " + address + " Email: " + email + " Postcode: " + postcode;
