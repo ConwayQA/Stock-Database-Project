@@ -137,15 +137,92 @@ public class ItemTest {
 	}
 	
 	@Test
+	public void nullPrice() {
+		item.setPrice(null);
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullPriceOnBoth() {
+		item.setPrice(null);
+		other.setPrice(null);
+		assertTrue(item.equals(other));
+	}
+	
+	@Test
+	public void otherPriceDifferent() {
+		other.setPrice(BigDecimal.valueOf(20.00));
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullMinPlayers() {
+		item.setId(null);
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullMinPlayersOnBoth() {
+		item.setId(null);
+		other.setId(null);
+		assertTrue(item.equals(other));
+	}
+	
+	@Test
+	public void otherMinPlayerDifferent() {
+		other.setId(2L);
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullMaxPlayers() {
+		item.setId(null);
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullMaxPlayersOnBoth() {
+		item.setId(null);
+		other.setId(null);
+		assertTrue(item.equals(other));
+	}
+	
+	@Test
+	public void otherMaxPlayerDifferent() {
+		other.setId(2L);
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullAvgPlayTime() {
+		item.setId(null);
+		assertFalse(item.equals(other));
+	}
+	
+	@Test
+	public void nullAvgPlayTimeOnBoth() {
+		item.setId(null);
+		other.setId(null);
+		assertTrue(item.equals(other));
+	}
+	
+	@Test
+	public void otherAvgPlayTimeDifferent() {
+		other.setId(2L);
+		assertFalse(item.equals(other));
+	}
+	
+	
+	@Test
 	public void constructorWithoutId() {
 		Item customer = new Item("Carcassonne", BigDecimal.valueOf(30.00), "Tile based", 2L, 12L, 30L);
 		assertNull(customer.getId());
-		assertNotNull(item.getName());
-		assertNotNull(item.getGenre());
-		assertNotNull(item.getPrice());
-		assertNotNull(item.getMinPlayers());
-		assertNotNull(item.getMaxPlayers());
-		assertNotNull(item.getAvgPlayTime());
+		assertNotNull(customer.getName());
+		assertNotNull(customer.getGenre());
+		assertNotNull(customer.getPrice());
+		assertNotNull(customer.getMinPlayers());
+		assertNotNull(customer.getMaxPlayers());
+		assertNotNull(customer.getAvgPlayTime());
 	}
 	
 	@Test

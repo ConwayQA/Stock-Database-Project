@@ -645,3 +645,23 @@
 2020-04-16 14:02:19 INFO  UserController:22 - Enter Username: 
 2020-04-16 14:02:27 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
 2020-04-16 14:02:27 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''admin' at line 1
+2020-04-16 16:04:23 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-16 16:04:23 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-16 16:04:23 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-16 16:04:23 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-16 16:04:23 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-16 16:05:32 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-16 16:05:32 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-16 16:05:32 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-16 16:05:32 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-16 16:05:32 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-16 16:22:39 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-16 16:22:39 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-16 16:22:39 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-16 16:22:39 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-16 16:22:39 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-16 16:24:06 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-16 16:24:06 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-16 16:24:06 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-16 16:24:06 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-16 16:24:06 INFO  Domain:31 - END: Closes the application once you are done

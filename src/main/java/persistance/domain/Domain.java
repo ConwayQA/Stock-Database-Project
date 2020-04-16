@@ -24,10 +24,13 @@ public enum Domain {
 		return this.name() + ": " +this.descriptor;
 	}
 	
-	public static void printDomains() {
+	public static String printDomains() {
+		String tests = "";
 		for (Domain domain : Domain.values()) {
+			tests += domain.getDescription();
 			LOGGER.info(domain.getDescription());
 		}
+		return tests;
 	}
 	
 	public static Domain getDomain() {

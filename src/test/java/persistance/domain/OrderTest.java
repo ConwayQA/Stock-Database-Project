@@ -114,18 +114,56 @@ public class OrderTest {
 		assertFalse(order.equals(other));
 	}
 	
-//	@Test
-//	public void nullItemIDS() {
-//		order.setItemIDs(null);
-//		assertFalse(order.equals(other));
-//	}
+	@Test
+	public void nullTotalPrice() {
+		order.setTotalPrice(null);
+		assertFalse(order.equals(other));
+	}
 	
-//	@Test
-//	public void nullItemIDsOnBoth() {
-//		order.setItemIDs(null);
-//		other.setItemIDs(null);
-//		assertTrue(order.equals(other));
-//	}
+	@Test
+	public void nullTotalPriceOnBoth() {
+		order.setTotalPrice(null);
+		other.setTotalPrice(null);
+		assertTrue(order.equals(other));
+	}
+	
+	@Test
+	public void otherTotalPriceDifferent() {
+		other.setTotalPrice(BigDecimal.valueOf(0.0));
+		assertFalse(order.equals(other));
+	}
+	
+	@Test
+	public void nullDate() {
+		order.setDate(null);
+		assertFalse(order.equals(other));
+	}
+	
+	@Test
+	public void nullDateOnBoth() {
+		order.setDate(null);
+		other.setDate(null);
+		assertTrue(order.equals(other));
+	}
+	
+	@Test
+	public void otherDateDifferent() {
+		other.setDate(LocalDate.of(2015, 12, 22));
+		assertFalse(order.equals(other));
+	}
+	
+	@Test
+	public void emptyItemIDS() {
+		order.setItemIDs(new ArrayList<>());
+		assertFalse(order.equals(other));
+	}
+	
+	@Test
+	public void emptyItemIDsOnBoth() {
+		order.setItemIDs(new ArrayList<>());
+		other.setItemIDs(new ArrayList<>());
+		assertTrue(order.equals(other));
+	}
 	
 	@Test
 	public void otherItemIDsDifferent() {
@@ -137,10 +175,30 @@ public class OrderTest {
 	public void constructorWithoutId() {
 		Order customer = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31));
 		assertNull(customer.getId());
-		assertNotNull(order.getCustomerID());
-		assertNotNull(order.getItemIDs());
-		assertNotNull(order.getTotalPrice());
-		assertNotNull(order.getDate());
+		assertNotNull(customer.getCustomerID());
+		assertNotNull(customer.getItemIDs());
+		assertNotNull(customer.getTotalPrice());
+		assertNotNull(customer.getDate());
+	}
+	
+	@Test
+	public void constructorWithoutPriceAndDate() {
+		Order customer = new Order(1L, 1L, testList);
+		assertNotNull(customer.getId());
+		assertNotNull(customer.getCustomerID());
+		assertNotNull(customer.getItemIDs());
+		assertNull(customer.getTotalPrice());
+		assertNull(customer.getDate());
+	}
+	
+	@Test
+	public void constructorWithoutIdPriceAndDate() {
+		Order customer = new Order(1L, testList);
+		assertNull(customer.getId());
+		assertNotNull(customer.getCustomerID());
+		assertNotNull(customer.getItemIDs());
+		assertNull(customer.getTotalPrice());
+		assertNull(customer.getDate());
 	}
 	
 	@Test
