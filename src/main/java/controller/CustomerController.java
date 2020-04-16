@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import persistance.domain.Customer;
+import persistance.domain.Item;
 import service.CrudService;
 import utilities.InputScanner;
 
@@ -29,6 +30,15 @@ public class CustomerController implements CrudController<Customer>{
 			LOGGER.info(customer.toString());
 		}
 		return allCustomers;
+	}
+	
+	@Override
+	public Customer read() {
+		LOGGER.info("Please enter the customer's ID: ");
+		Long customerID = Long.getLong(getInput());
+		Customer singleCustomer = customerServices.read(customerID);
+		LOGGER.info(singleCustomer.toString());
+		return singleCustomer;
 	}
 
 	@Override

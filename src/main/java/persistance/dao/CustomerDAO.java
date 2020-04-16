@@ -19,11 +19,11 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
 		Long id = resultSet.getLong("customer_id");
 		String firstName = resultSet.getString("first_name");
-		String surname = resultSet.getString("last_name");
+		String lastName = resultSet.getString("last_name");
 		String address = resultSet.getString("address");
 		String email = resultSet.getString("email");
 		String postcode = resultSet.getString("postcode");
-		return new Customer(id, firstName, surname, address, email, postcode);
+		return new Customer(id, firstName, lastName, address, email, postcode);
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 			statement.executeUpdate("UPDATE customers SET first_name ='" + updateCustomer.getFirstName() + "', last_name ='" + 
 										updateCustomer.getLastName() + "', address ='" + updateCustomer.getAddress() + "', email ='" + 
 										updateCustomer.getEmail() + "', postcode ='" + updateCustomer.getPostcode() + "' WHERE customer_id =" + 
-										updateCustomer.getId());
+										updateCustomer.getId().intValue());
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -89,7 +89,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	@Override
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM customers WHERE customer_id = " + id);
+			statement.executeUpdate("DELETE * FROM customers WHERE customer_id = " + id.intValue());
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

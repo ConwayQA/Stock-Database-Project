@@ -47,7 +47,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	@Override
 	public Item read(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id);) {
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id.intValue());) {
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -62,8 +62,8 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time) VALUES('" + 
 										createItem.getName() + "','" + createItem.getPrice() + "','" + 
-										createItem.getGenre() + "','" + createItem.getMinPlayers() + "','" + 
-										createItem.getMaxPlayers() + "','" + createItem.getAvgPlayTime() + "')");
+										createItem.getGenre() + "','" + createItem.getMinPlayers().intValue() + "','" + 
+										createItem.getMaxPlayers().intValue() + "','" + createItem.getAvgPlayTime().intValue() + "')");
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -77,7 +77,8 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE items SET name ='" + updateItem.getName() + "', price ='" + 
 										updateItem.getPrice() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
-										updateItem.getMinPlayers() + "', max_players ='" + updateItem.getMaxPlayers() + "', avg_play_time ='" + updateItem.getAvgPlayTime() + 
+										updateItem.getMinPlayers().intValue() + "', max_players ='" + updateItem.getMaxPlayers().intValue() +
+										"', avg_play_time ='" + updateItem.getAvgPlayTime().intValue() + 
 										"' WHERE item_id =" + updateItem.getId());
 			return readLast();
 		} catch (SQLException sqle) {
@@ -90,7 +91,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	@Override
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM items WHERE item_id = " + id);
+			statement.executeUpdate("DELETE * FROM items WHERE item_id = " + id.intValue());
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

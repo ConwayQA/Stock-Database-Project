@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import persistance.domain.Item;
+import persistance.domain.Order;
 import service.CrudService;
 import utilities.InputScanner;
 
@@ -30,6 +31,15 @@ public static final Logger LOGGER = Logger.getLogger(ItemController.class);
 			LOGGER.info(item.toString());
 		}
 		return allItems;
+	}
+	
+	@Override
+	public Item read() {
+		LOGGER.info("Please enter the item's ID: ");
+		Long itemID = Long.getLong(getInput());
+		Item singleItem = itemServices.read(itemID);
+		LOGGER.info(singleItem.toString());
+		return singleItem;
 	}
 
 	@Override
@@ -66,7 +76,7 @@ public static final Logger LOGGER = Logger.getLogger(ItemController.class);
 		String genre = getInput();
 		LOGGER.info("Please enter the items minimum number of players: ");
 		Long minPlayers = Long.getLong(getInput());
-		LOGGER.info("Please enter the maximum number of players: ");
+		LOGGER.info("Please enter the items maximum number of players: ");
 		Long maxPlayers = Long.getLong(getInput());
 		LOGGER.info("Please enter the average play time (Minutes): ");
 		Long avgPlayTime = Long.getLong(getInput());
