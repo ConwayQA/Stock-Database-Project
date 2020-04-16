@@ -53,11 +53,11 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 	}
 
 	@Override
-	public User create(User createCustomer) {
+	public User create(User createUser) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("INSERT INTO user(first_name, last_name, username) VALUES('" + 
-										createCustomer.getFirstName() + "','" + createCustomer.getLastName() + "','" + 
-										createCustomer.getUsername() + "')");
+										createUser.getFirstName() + "','" + createUser.getLastName() + "','" + 
+										createUser.getUsername() + "')");
 			
 			return readLast();
 		} catch (SQLException sqle) {
@@ -85,6 +85,12 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("DELETE * FROM user WHERE user_id = " + id.intValue());
+			} catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
+		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
+			statement.executeUpdate("DELETE * FROM user_password WHERE user_id = " + id.intValue());
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

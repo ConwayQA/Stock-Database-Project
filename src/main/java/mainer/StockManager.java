@@ -40,10 +40,12 @@ public class StockManager {
 		DAOConnect.setUsername(username);
 		DAOConnect.setPassword(password);
 		
-		currentUser = userLogin();
-		if (currentUser.isLoggedIn()) {
-			endApp = false;
-		}
+//		currentUser = userLogin();
+//		if (currentUser.isLoggedIn()) {
+//			endApp = false;
+//		}
+		//temp endApp Change for testing.
+		endApp = false;
 		
 		while(!endApp) {
 			runMenu();

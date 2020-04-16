@@ -33,7 +33,7 @@ public static final Logger LOGGER = Logger.getLogger(UserDAO.class);
 			LOGGER.error(sqle.getMessage());
 		}
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT AES_DECRYPT(password,'admin') FROM user_password WHERE user_id = " + userLogin.getUserID().intValue());) {
+				ResultSet resultSet = statement.executeQuery("SELECT AES_DECRYPT(password,'Admin') FROM user_password WHERE user_id = " + userLogin.getUserID().intValue());) {
 			resultSet.next();
 			if (password.contentEquals(resultSet.getString(1))) {
 				userLogin.setLoggedIn(true);
