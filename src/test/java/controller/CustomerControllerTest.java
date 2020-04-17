@@ -6,14 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import persistance.domain.Customer;
 import service.CustomerServices;
 
+@RunWith(MockitoJUnitRunner.class)
 public class CustomerControllerTest {
 
 	/**
