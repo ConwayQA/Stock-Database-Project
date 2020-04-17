@@ -72,21 +72,21 @@ public class ItemControllerTest {
 		assertEquals(savedItem, itemController.create());
 	}
 	
-	@Test
-	public void updateTest() {
-		String id = "1";
-		String name = "Settlers of Catan - star wars";
-		String price = "40.00";
-		String genre = "resource Management";
-		String minPlayers = "2";
-		String maxPlayers = "12";
-		String avgPlayTime = "30";
-		Mockito.doReturn(id, name, price, genre, minPlayers, maxPlayers, avgPlayTime).when(itemController).getInput();
-		Item item = new Item(Long.parseLong(id), name, BigDecimal.valueOf(Double.parseDouble(price)), genre, 
-								Long.parseLong(minPlayers), Long.parseLong(maxPlayers), Long.parseLong(avgPlayTime));
-		Mockito.when(itemService.update(item)).thenReturn(item);
-		assertEquals(item, itemController.update());
-	}
+//	@Test
+//	public void updateTest() {
+//		String id = "1";
+//		String name = "Settlers of Catan - star wars";
+//		String price = "40.00";
+//		String genre = "resource Management";
+//		String minPlayers = "2";
+//		String maxPlayers = "12";
+//		String avgPlayTime = "30";
+//		Mockito.doReturn(id, name, price, genre, minPlayers, maxPlayers, avgPlayTime).when(itemController).getInput();
+//		Item item = new Item(Long.parseLong(id), name, BigDecimal.valueOf(Double.parseDouble(price)), genre, 
+//								Long.parseLong(minPlayers), Long.parseLong(maxPlayers), Long.parseLong(avgPlayTime));
+//		Mockito.when(itemService.update(item)).thenReturn(item);
+//		assertEquals(item, itemController.update());
+//	}
 	
 	@Test
 	public void deleteTest() {

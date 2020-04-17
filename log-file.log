@@ -2584,3 +2584,22 @@
 2020-04-17 17:02:17 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
 2020-04-17 17:02:17 INFO  Domain:31 - USERS: Information on staff users of the system
 2020-04-17 17:02:17 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-17 17:15:39 INFO  OrderController:30 - Order ID: 1 Customer ID: 1 Total Price: £0.0 Date Ordered: 2020-04-17
+2020-04-17 17:15:39 INFO  OrderController:30 - Order ID: 2 Customer ID: 2 Total Price: £0.0 Date Ordered: 2020-04-17
+2020-04-17 17:15:39 INFO  OrderController:30 - Order ID: 3 Customer ID: 3 Total Price: £0.0 Date Ordered: 2020-04-17
+2020-04-17 17:15:40 INFO  OrderController:37 - Please enter the order's ID: 
+2020-04-17 17:15:40 INFO  OrderController:40 - Order ID: 1 Customer ID: 1 Total Price: £0.0 Date Ordered: 2020-04-17
+2020-04-17 17:15:41 INFO  OrderController:80 - Please enter the id of the order you would like to delete
+2020-04-17 17:15:54 INFO  ItemController:30 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30
+2020-04-17 17:15:54 INFO  ItemController:30 - ID: null Name: Settlers of Catan price: £30.0 genre: resource management minimum number of players: 3 maximum number of players: 5 average play time: 60
+2020-04-17 17:15:54 INFO  ItemController:30 - ID: null Name: Pandemic price: £40.0 genre: Players vs game minimum number of players: 1 maximum number of players: 6 average play time: 60
+2020-04-17 17:15:55 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-17 17:15:55 INFO  ItemController:40 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30
+2020-04-17 17:15:56 INFO  ItemController:70 - Please enter the items name: 
+2020-04-17 17:15:56 INFO  ItemController:72 - Please enter the items price: 
+2020-04-17 17:15:56 INFO  ItemController:74 - Please enter the items genre: 
+2020-04-17 17:15:56 INFO  ItemController:76 - Please enter the items minimum number of players: 
+2020-04-17 17:15:56 INFO  ItemController:78 - Please enter the items maximum number of players: 
+2020-04-17 17:15:56 INFO  ItemController:80 - Please enter the average play time (Minutes): 
+2020-04-17 17:15:56 INFO  ItemController:48 - Item created.
+2020-04-17 17:15:57 INFO  ItemController:64 - Please enter the id of the item you would like to delete
