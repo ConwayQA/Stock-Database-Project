@@ -71,7 +71,7 @@ public class OrderController implements CrudController<Order>{
 			itemIDs.add(Long.valueOf((getInput())));
 		}
 		Order order = orderServices.create(new Order(id, customerID, itemIDs));
-		LOGGER.info("Order created.");
+		LOGGER.info("Order updated.");
 		return order;
 	}
 

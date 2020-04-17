@@ -7,7 +7,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class DomainTest {
 	
@@ -44,9 +43,9 @@ public class DomainTest {
 	@Test
 	public void printTest() {
 		String toString = "CUSTOMER: Information on store customersITEMS: "
-				+ "Details on items in stockORDERS: Collection of customers "
-				+ "purchases of itemsUSERS: Information on staff users of the "
-				+ "systemEND: Closes the application once you are done";
+							+ "Details on items in stockORDERS: Collection of customers "
+							+ "purchases of itemsUSERS: Information on staff users of the "
+							+ "systemEND: Closes the application once you are done";
 		assertEquals(toString, Domain.printDomains());
 	}
 	

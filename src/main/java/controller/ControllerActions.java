@@ -15,20 +15,23 @@ public enum ControllerActions {
 
 	public static final Logger LOGGER = Logger.getLogger(ControllerActions.class);
 	
-	private String descriptor;
+	private String description;
 	
 	ControllerActions(String descriptor) {
-		this.descriptor = descriptor;
+		this.description = descriptor;
 	}
 
-	public String getDescriptor() {
-		return this.name() + ": " + this.descriptor;
+	public String getDescription() {
+		return this.name() + ": " + this.description;
 	}
 	
-	public static void printActions() {
+	public static String printActions() {
+		String tests = "";
 		for (ControllerActions action : ControllerActions.values()) {
-			LOGGER.info(action.getDescriptor());
+			tests += action.getDescription();
+			LOGGER.info(action.getDescription());
 		}
+		return tests;
 	}
 	
 	public static ControllerActions getControllerAction() {

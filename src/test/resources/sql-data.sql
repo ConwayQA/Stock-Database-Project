@@ -2,3 +2,16 @@ insert into ims.customers(first_name, last_name, address, email, postcode) value
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke2', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke3', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke4', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
+insert into ims.items(name, price, genre, min_players, max_players, avg_play_time) values('Carcassonne', 20.00, 'Tile Based', 2, 12, 30);
+insert into ims.items(name, price, genre, min_players, max_players, avg_play_time) values('Settlers of Catan', 30, 'Resource Management', 3, 6, 30);
+insert into ims.items(name, price, genre, min_players, max_players, avg_play_time) values('Pandemic', 40.00, 'Players vs Game', 1, 6, 60);
+insert into ims.orders(customer_id, total_price, date_ordered) values(1, 90.00, 2020-04-17);
+insert into ims.orders(customer_id, total_price, date_ordered) values(2, 70.00, 2020-04-17);
+insert into ims.orders(customer_id, total_price, date_ordered) values(3, 50.00, 2020-04-17);
+insert into ims.order_items(order_id, item_id) values(1, 1);
+insert into ims.order_items(order_id, item_id) values(1, 2);
+insert into ims.order_items(order_id, item_id) values(1, 3);
+insert into ims.order_items(order_id, item_id) values(2, 2);
+insert into ims.order_items(order_id, item_id) values(2, 3);
+insert into ims.order_items(order_id, item_id) values(3, 1);
+insert into ims.order_items(order_id, item_id) values(3, 2);

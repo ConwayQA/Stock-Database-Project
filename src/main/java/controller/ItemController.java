@@ -55,7 +55,7 @@ public static final Logger LOGGER = Logger.getLogger(ItemController.class);
 		Long id = Long.valueOf(getInput());
 		Item tempItem = inputItemData();
 		Item item = itemServices.create(new Item(id, tempItem.getName(), tempItem.getPrice(), tempItem.getGenre(), tempItem.getMinPlayers(), tempItem.getMaxPlayers(), tempItem.getAvgPlayTime()));
-		LOGGER.info("Item created.");
+		LOGGER.info("Item updated.");
 		return item;
 	}
 
