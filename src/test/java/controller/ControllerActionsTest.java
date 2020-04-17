@@ -8,8 +8,6 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-import persistance.domain.Domain;
-
 public class ControllerActionsTest {
 
 	@Test

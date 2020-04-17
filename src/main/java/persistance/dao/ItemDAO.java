@@ -80,7 +80,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 										updateItem.getMinPlayers().intValue() + "', max_players ='" + updateItem.getMaxPlayers().intValue() +
 										"', avg_play_time ='" + updateItem.getAvgPlayTime().intValue() + 
 										"' WHERE item_id =" + updateItem.getId().intValue());
-			return readLast();
+			return read(updateItem.getId());
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -91,7 +91,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	@Override
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM items WHERE item_id = " + id.intValue());
+			statement.executeUpdate("DELETE FROM items WHERE item_id = " + id.intValue());
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 
 import persistance.domain.User;
 import service.CrudService;
-import service.LoginService;
 import utilities.InputScanner;
 
 public class UserController implements CrudController<User>{

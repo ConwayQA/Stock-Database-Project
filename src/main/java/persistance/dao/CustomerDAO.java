@@ -78,7 +78,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 										updateCustomer.getLastName() + "', address ='" + updateCustomer.getAddress() + "', email ='" + 
 										updateCustomer.getEmail() + "', postcode ='" + updateCustomer.getPostcode() + "' WHERE customer_id =" + 
 										updateCustomer.getId().intValue());
-			return readLast();
+			return read(updateCustomer.getId());
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -89,7 +89,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	@Override
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM customers WHERE customer_id = " + id.intValue());
+			statement.executeUpdate("DELETE FROM customers WHERE customer_id = " + id.intValue());
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

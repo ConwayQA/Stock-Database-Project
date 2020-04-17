@@ -8,13 +8,11 @@ import controller.CustomerController;
 import controller.ItemController;
 import controller.LoginController;
 import controller.OrderController;
-import controller.UserController;
 import controller.UserLoginController;
 import persistance.dao.CustomerDAO;
 import persistance.dao.DAOConnect;
 import persistance.dao.ItemDAO;
 import persistance.dao.OrderDAO;
-import persistance.dao.UserDAO;
 import persistance.dao.UserLoginDAO;
 import persistance.domain.Domain;
 import persistance.domain.User;
@@ -22,7 +20,6 @@ import service.CustomerServices;
 import service.ItemServices;
 import service.OrderServices;
 import service.UserLoginServices;
-import service.UserServices;
 import utilities.InputScanner;
 
 public class StockManager {
@@ -39,11 +36,14 @@ public class StockManager {
 
 		DAOConnect.setUsername(username);
 		DAOConnect.setPassword(password);
+		DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
+		
 		
 //		currentUser = userLogin();
 //		if (currentUser.isLoggedIn()) {
 //			endApp = false;
 //		}
+		
 		//temp endApp Change for testing.
 		endApp = false;
 		

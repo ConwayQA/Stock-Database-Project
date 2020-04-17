@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -16,11 +17,19 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import persistance.dao.DAOConnect;
 import persistance.domain.Order;
 import service.OrderServices;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OrderControllerTest {
+	
+	@Before
+	public void init() {
+		DAOConnect.username = "root";
+		DAOConnect.password = "TryBreakingThisPassword! Hackers";
+		DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
+	}
 	
 	@Mock
 	private OrderServices orderServices;
@@ -30,6 +39,15 @@ public class OrderControllerTest {
 	private OrderController orderController;
 
 	List<Long> testList = Arrays.asList(3L, 2L, 5L);
+	
+	@Test
+	public void readTest() {
+		Order order = new Order(1L, 1L, testList, BigDecimal.valueOf(0.00), LocalDate.now());
+		String id = "1";
+		Mockito.doReturn(id).when(orderController).getInput();
+		Mockito.when(orderServices.read(1L)).thenReturn(order);
+		assertEquals(order, orderController.read());
+	}
 	
 	@Test
 	public void readAllTest() {

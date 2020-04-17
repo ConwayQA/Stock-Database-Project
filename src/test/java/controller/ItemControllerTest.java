@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -14,13 +15,19 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import persistance.domain.Customer;
+import persistance.dao.DAOConnect;
 import persistance.domain.Item;
-import service.CustomerServices;
 import service.ItemServices;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ItemControllerTest {
+	
+	@Before
+	public void init() {
+		DAOConnect.username = "root";
+		DAOConnect.password = "TryBreakingThisPassword! Hackers";
+		DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
+	}
 
 	@Mock
 	private ItemServices itemService;
@@ -29,6 +36,15 @@ public class ItemControllerTest {
 	@InjectMocks
 	private ItemController itemController;
 
+	@Test
+	public void readTest() {
+		Item item = new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile based", 2L, 12L, 30L);
+		String id = "1";
+		Mockito.doReturn(id).when(itemController).getInput();
+		Mockito.when(itemService.read(1L)).thenReturn(item);
+		assertEquals(item, itemController.read());
+	}
+	
 	@Test
 	public void readAllTest() {
 		ItemController itemController1 = new ItemController(itemService);
@@ -55,13 +71,13 @@ public class ItemControllerTest {
 		Mockito.when(itemService.create(item)).thenReturn(savedItem);
 		assertEquals(savedItem, itemController.create());
 	}
-
+	
 	@Test
 	public void updateTest() {
 		String id = "1";
-		String name = "Carcassonne";
-		String price = "20.00";
-		String genre = "Tile based";
+		String name = "Settlers of Catan - star wars";
+		String price = "40.00";
+		String genre = "resource Management";
 		String minPlayers = "2";
 		String maxPlayers = "12";
 		String avgPlayTime = "30";

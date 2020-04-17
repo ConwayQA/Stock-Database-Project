@@ -96,9 +96,9 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
 			statement.executeUpdate("UPDATE orders SET customer_id ='" + updateOrder.getCustomerID().intValue() + "', total_price ='" + 
 										updateOrder.getTotalPrice().doubleValue() + "', date_ordered ='" + updateOrder.getDate() + 
-										"' WHERE item_id =" + updateOrder.getId().intValue());
+										"' WHERE order_id =" + updateOrder.getId().intValue());
 			writeOrderItems(updateOrder);
-			return readLast();
+			return read(updateOrder.getId());
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -109,8 +109,8 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	@Override
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM orders WHERE order_id = " + id.intValue());
-			statement.executeUpdate("DELETE * FROM order_items WHERE order_id = " + id.intValue());
+			statement.executeUpdate("DELETE FROM orders WHERE order_id = " + id.intValue());
+			statement.executeUpdate("DELETE FROM order_items WHERE order_id = " + id.intValue());
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());
@@ -149,6 +149,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	
 	public void writeOrderItems(Order writeItemsOrder) {
 		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
+			statement.executeUpdate("DELETE FROM order_items WHERE order_id = " + writeItemsOrder.getId().intValue());
 			for (Long itemID:writeItemsOrder.getItemIDs()) {
 				statement.executeUpdate("INSERT INTO order_items(order_id, item_id) VALUES('" + 
 						writeItemsOrder.getId().intValue() + "','" + itemID.intValue() + "')");
