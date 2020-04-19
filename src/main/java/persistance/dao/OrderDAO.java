@@ -76,10 +76,11 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			createOrder.setDate(LocalDate.now());
 		}
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO orders(customer_id, total_price, date_ordered) VALUES(?, ?, ?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO orders(customer_id, total_price, date_ordered, user_id) VALUES(?, ?, ?, ?)");) {
 			statement.setInt(1, createOrder.getCustomerID().intValue());
 			statement.setDouble(2, createOrder.getTotalPrice().doubleValue());
 			statement.setDate(3, Date.valueOf(createOrder.getDate()));
+			statement.setInt(4, createOrder.getUserID().intValue());
 			statement.executeUpdate();
 			writeOrderItems(createOrder);
 			return readLast();
@@ -99,11 +100,12 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			updateOrder.setDate(LocalDate.now());
 		}
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("UPDATE orders SET customer_id = ?, total_price = ?, date_ordered = ? WHERE order_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("UPDATE orders SET customer_id = ?, total_price = ?, date_ordered = ?, user_id = ? WHERE order_id = ?");) {
 			statement.setInt(1, updateOrder.getCustomerID().intValue());
 			statement.setDouble(2, updateOrder.getTotalPrice().doubleValue());
 			statement.setDate(3, Date.valueOf(updateOrder.getDate()));
-			statement.setInt(4, updateOrder.getId().intValue());
+			statement.setInt(4, updateOrder.getUserID().intValue());
+			statement.setInt(5, updateOrder.getId().intValue());
 			statement.executeUpdate();
 			writeOrderItems(updateOrder);
 			return read(updateOrder.getId());

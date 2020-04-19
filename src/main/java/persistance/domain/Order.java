@@ -86,6 +86,14 @@ public class Order {
 		this.itemIDs = itemIDs;
 	}
 	
+	public Long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
+
 	@Override
 	public String toString() {
 		return "Order ID: " + id + " Customer ID: " + customerID + " Total Price: £" + totalPrice +

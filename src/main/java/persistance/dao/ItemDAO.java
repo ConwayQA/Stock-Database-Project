@@ -63,13 +63,14 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	@Override
 	public Item create(Item createItem) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time) VALUES(?,?,?,?,?,?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time, user_id) VALUES(?,?,?,?,?,?)");) {
 			statement.setString(1, createItem.getName());
 			statement.setDouble(2, createItem.getPrice().doubleValue());
 			statement.setString(3, createItem.getGenre());
 			statement.setInt(4, createItem.getMinPlayers().intValue());
 			statement.setInt(5, createItem.getMaxPlayers().intValue());
 			statement.setInt(6, createItem.getAvgPlayTime().intValue());
+			statement.setInt(7, createItem.getUserID().intValue());
 			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
@@ -82,14 +83,15 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	@Override
 	public Item update(Item updateItem) {
 		try (Connection connection = databaseConnect();
-				PreparedStatement statement = connection.prepareStatement("UPDATE items SET name = ?, price = ?, genre = ?, min_players = ?, max_players = ?, avg_play_time = ? WHERE item_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("UPDATE items SET name = ?, price = ?, genre = ?, min_players = ?, max_players = ?, avg_play_time = ?, user_id = ? WHERE item_id = ?");) {
 			statement.setString(1, updateItem.getName());
 			statement.setDouble(2, updateItem.getPrice().doubleValue());
 			statement.setString(3, updateItem.getGenre());
 			statement.setInt(4, updateItem.getMinPlayers().intValue());
 			statement.setInt(5, updateItem.getMaxPlayers().intValue());
 			statement.setInt(6, updateItem.getAvgPlayTime().intValue());
-			statement.setInt(6, updateItem.getId().intValue());
+			statement.setInt(7, updateItem.getUserID().intValue());
+			statement.setInt(8, updateItem.getId().intValue());
 			statement.executeUpdate();
 			return read(updateItem.getId());
 		} catch (SQLException sqle) {

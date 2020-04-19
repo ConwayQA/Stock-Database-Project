@@ -61,12 +61,13 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	@Override
 	public Customer create(Customer createCustomer) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO customers(first_name, last_name, address, email, postcode) VALUES(?,?,?,?,?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO customers(first_name, last_name, address, email, postcode, user_id) VALUES(?,?,?,?,?,?)");) {
 			statement.setString(1, createCustomer.getFirstName());
 			statement.setString(2, createCustomer.getLastName());
 			statement.setString(3, createCustomer.getAddress());
 			statement.setString(4, createCustomer.getEmail());
 			statement.setString(5, createCustomer.getPostcode());
+			statement.setInt(5, createCustomer.getUserID().intValue());
 			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
@@ -79,13 +80,14 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	@Override
 	public Customer update(Customer updateCustomer) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, address = ?, email = ?, postcode = ? WHERE customer_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, address = ?, email = ?, postcode = ?, user_id = ? WHERE customer_id = ?");) {
 			statement.setString(1, updateCustomer.getFirstName());
 			statement.setString(2, updateCustomer.getLastName());
 			statement.setString(3, updateCustomer.getAddress());
 			statement.setString(4, updateCustomer.getEmail());
 			statement.setString(5, updateCustomer.getPostcode());
-			statement.setInt(6, updateCustomer.getId().intValue());
+			statement.setInt(6, updateCustomer.getUserID().intValue());
+			statement.setInt(7, updateCustomer.getId().intValue());
 			statement.executeUpdate();
 			return read(updateCustomer.getId());
 		} catch (SQLException sqle) {
