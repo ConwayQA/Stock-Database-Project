@@ -11,6 +11,8 @@ public class Item {
 	private Long minPlayers;
 	private Long maxPlayers;
 	private Long avgPlayTime;
+	private Long userID;
+	
 	
 	public Item(String name, BigDecimal price, String genre, Long minPlayers, Long maxPlayers, Long avgPlayTime) {
 		super();
@@ -31,6 +33,29 @@ public class Item {
 		this.minPlayers = minPlayers;
 		this.maxPlayers = maxPlayers;
 		this.avgPlayTime = avgPlayTime;
+	}
+	
+	public Item(String name, BigDecimal price, String genre, Long minPlayers, Long maxPlayers, Long avgPlayTime, Long userID) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.genre = genre;
+		this.minPlayers = minPlayers;
+		this.maxPlayers = maxPlayers;
+		this.avgPlayTime = avgPlayTime;
+		this.userID = userID;
+	}
+	
+	public Item(Long id, String name, BigDecimal price, String genre, Long minPlayers, Long maxPlayers, Long avgPlayTime, Long userID) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.genre = genre;
+		this.minPlayers = minPlayers;
+		this.maxPlayers = maxPlayers;
+		this.avgPlayTime = avgPlayTime;
+		this.userID = userID;
 	}
 	
 	public Long getId() {
@@ -75,13 +100,19 @@ public class Item {
 	public void setAvgPlayTime(Long avgPlayTime) {
 		this.avgPlayTime = avgPlayTime;
 	}
-	
+	public Long getUserID() {
+		return userID;
+	}
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
+
 	@Override
 	public String toString() {
 		return "ID: " + id + " Name: " + name + " price: £" + price +
 				" genre: " + genre + " minimum number of players: " + minPlayers + 
 				" maximum number of players: " + maxPlayers + " average play time: " +
-				avgPlayTime;
+				avgPlayTime + " userID: " + userID;
 	}
 	
 	//Method from christophperrins to override hashcode()
@@ -96,6 +127,7 @@ public class Item {
 		result = prime * result + ((maxPlayers == null) ? 0 : maxPlayers.hashCode());
 		result = prime * result + ((avgPlayTime == null) ? 0 : avgPlayTime.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((userID == null) ? 0 : userID.hashCode());
 		return result;
 	}
 			
@@ -156,6 +188,13 @@ public class Item {
 				return false;
 			}
 		} else if (!genre.equals(compareItem.genre)) {
+			return false;
+		}
+		if (userID == null) {
+			if(compareItem.userID != null) {
+				return false;
+			}
+		} else if (!userID.equals(compareItem.userID)) {
 			return false;
 		}
 		return true;

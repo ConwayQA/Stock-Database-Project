@@ -8,11 +8,8 @@ public class Customer {
 	private String address;
 	private String email;
 	private String postcode;
+	private Long userID;
 	
-	public Customer() {
-		super();
-	}
-
 	public Customer(String firstName, String lastName, String address, String email, String postcode) {
 		super();
 		this.firstName = firstName;
@@ -30,6 +27,27 @@ public class Customer {
 		this.address = address;
 		this.email = email;
 		this.postcode = postcode;
+	}
+
+	public Customer(String firstName, String lastName, String address, String email, String postcode, Long userID) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.email = email;
+		this.postcode = postcode;
+		this.userID = userID;
+	}
+	
+	public Customer(Long id, String firstName, String lastName, String address, String email, String postcode, Long userID) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.email = email;
+		this.postcode = postcode;
+		this.userID = userID;
 	}
 
 	public Long getId() {
@@ -80,10 +98,19 @@ public class Customer {
 		this.postcode = postcode;
 	}
 	
+	public Long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
+
 	@Override
 	public String toString() {
 		return "ID: " + id + " First Name: " + firstName + " Last Name: " + lastName +
-				" Address: " + address + " Email: " + email + " Postcode: " + postcode;
+				" Address: " + address + " Email: " + email + " Postcode: " + postcode +
+				" userID: " + userID;
 	}
 	
 	//Method from christophperrins to override hashcode()
@@ -97,6 +124,7 @@ public class Customer {
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((postcode == null) ? 0 : postcode.hashCode());
+		result = prime * result + ((userID == null) ? 0 : userID.hashCode());
 		return result;
 	}
 		
@@ -149,6 +177,13 @@ public class Customer {
 				return false;
 			}
 		} else if (!postcode.equals(compareCustomer.postcode)) {
+			return false;
+		}
+		if (userID == null) {
+			if(compareCustomer.userID != null) {
+				return false;
+			}
+		} else if (!userID.equals(compareCustomer.userID)) {
 			return false;
 		}
 		return true;

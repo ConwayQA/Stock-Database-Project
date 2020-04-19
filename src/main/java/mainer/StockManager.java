@@ -53,11 +53,11 @@ public class StockManager {
 		endApp = false;
 		
 		while(!endApp) {
-			runMenu();
+			runMenu(currentUser.getUserID());
 		};
 	}
 	
-	public void runMenu() {
+	public void runMenu(Long userID) {
 		LOGGER.info("Which entity would you like to use?");
 		Domain.printDomains();
 		Domain domain = Domain.getDomain();
@@ -70,15 +70,15 @@ public class StockManager {
 			switch (domain) {
 			case CUSTOMER:
 				CustomerController customerController = new CustomerController(new CustomerServices(new CustomerDAO()));
-				doAction(customerController, action);
+				doAction(customerController, action, userID);
 				break;
 			case ITEMS:
 				ItemController itemController = new ItemController(new ItemServices(new ItemDAO()));
-				doAction(itemController, action);
+				doAction(itemController, action, userID);
 				break;
 			case ORDERS:
 				OrderController orderController = new OrderController(new OrderServices(new OrderDAO()));
-				doAction(orderController, action);
+				doAction(orderController, action, userID);
 				break;
 			case END:
 				break;
@@ -88,10 +88,10 @@ public class StockManager {
 		} else { endApp = true; }
 	}
 	
-	public void doAction(CrudController<?> crudController, ControllerActions action) {
+	public void doAction(CrudController<?> crudController, ControllerActions action, Long userID) {
 		switch (action) {
 		case CREATE:
-			crudController.create();
+			crudController.create(userID);
 			break;
 		case READ:
 			crudController.read();
@@ -100,7 +100,7 @@ public class StockManager {
 			crudController.readAll();
 			break;
 		case UPDATE:
-			crudController.update();
+			crudController.update(userID);
 			break;
 		case DELETE:
 			crudController.delete();

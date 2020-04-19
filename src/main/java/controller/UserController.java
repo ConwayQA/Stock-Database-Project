@@ -41,7 +41,7 @@ public class UserController implements CrudController<User>{
 	}
 
 	@Override
-	public User create() {
+	public User create(Long userID) {
 		User tempUser = inputUserData();
 		User user = userServices.create(new User(tempUser.getFirstName(), tempUser.getLastName(), tempUser.getUsername(), tempUser.getPassword()));
 		LOGGER.info("User created.");
@@ -49,7 +49,7 @@ public class UserController implements CrudController<User>{
 	}
 
 	@Override
-	public User update() {
+	public User update(Long userID) {
 		LOGGER.info("Please enter the id of the user you would like to update");
 		Long id = Long.valueOf(getInput());
 		User tempUser = inputUserData();

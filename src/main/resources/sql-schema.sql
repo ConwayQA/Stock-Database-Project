@@ -1,17 +1,62 @@
-drop database if exists ims;
-create database if not exists ims;
-drop table if exists ims.customers;
-CREATE TABLE ims.customers(customer_id INT AUTO_INCREMENT,first_name VARCHAR(50) NOT NULL,last_name VARCHAR(50) NOT NULL,address VARCHAR(50) NOT NULL,email VARCHAR(50) NOT NULL,postcode VARCHAR(10) NOT NULL,PRIMARY KEY (customer_id));
-drop table if exists ims.items;
-CREATE TABLE ims.items(item_id INT AUTO_INCREMENT,name VARCHAR(50) NOT NULL,price DOUBLE(4,2) NOT NULL,genre VARCHAR(40),min_players INT,max_players INT,avg_play_time INT,PRIMARY KEY (item_id));
-drop table if exists ims.user;
-CREATE TABLE ims.user(user_id INT AUTO_INCREMENT,first_name VARCHAR(50) NOT NULL,last_name VARCHAR(50) NOT NULL,username VARCHAR(16) NOT NULL,PRIMARY KEY (user_id));
-drop table if exists ims.orders;
-CREATE TABLE ims.orders(order_id INT AUTO_INCREMENT,customer_id INT,user_id INT,total_price DOUBLE(4,2) NOT NULL,date_ordered DATE NOT NULL,PRIMARY KEY (order_id),FOREIGN KEY (customer_id) REFERENCES ims.customers (customer_id) ON DELETE CASCADE, FOREIGN KEY (user_id) REFERENCES ims.user (user_id) ON DELETE CASCADE);
-drop table if exists ims.order_items;
-CREATE TABLE ims.order_items(order_id INT,item_id INT,FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE,FOREIGN KEY (item_id) REFERENCES ims.items (item_id) ON DELETE CASCADE);
-drop table if exists ims.user_password;
-CREATE TABLE ims.user_password(user_id INT,password VARBINARY(128) NOT NULL,FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE);
+DROP TABLE IF EXISTS ims;
+CREATE TABLE IF NOT EXISTS ims;
+DROP TABLE IF EXISTS ims.customers;
+CREATE TABLE ims.customers(
+customer_id INT AUTO_INCREMENT,
+first_name VARCHAR(50) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+address VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
+postcode VARCHAR(10) NOT NULL,
+user_id INT,
+PRIMARY KEY (customer_id)
+FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE
+);
+DROP TABLE IF EXISTS ims.items;
+CREATE TABLE ims.items(
+item_id INT AUTO_INCREMENT,
+name VARCHAR(50) NOT NULL,
+price DOUBLE(4,2) NOT NULL,
+genre VARCHAR(10),
+min_players INT,
+max_players INT,
+avg_play_time INT,
+user_id INT,
+PRIMARY KEY (item_id)
+FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE
+);
+DROP TABLE IF EXISTS ims.user;
+CREATE TABLE ims.user(
+user_id INT AUTO_INCREMENT,
+first_name VARCHAR(50) NOT NULL,
+last_name VARCHAR(50) NOT NULL,
+username VARCHAR(16) NOT NULL,
+PRIMARY KEY (user_id)
+);
+DROP TABLE IF EXISTS ims.orders;
+CREATE TABLE ims.orders(
+order_id INT AUTO_INCREMENT,
+customer_id INT,
+total_price DOUBLE(4,2) NOT NULL,
+date_ordered DATE NOT NULL,
+user_id INT,
+PRIMARY KEY (order_id),
+FOREIGN KEY (customer_id) REFERENCES customers (customer_id) ON DELETE CASCADE, 
+FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE
+);
+DROP TABLE IF EXISTS ims.order_items;
+CREATE TABLE ims.order_items(
+order_id INT,
+item_id INT,
+FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE,
+FOREIGN KEY (item_id) REFERENCES items (item_id) ON DELETE CASCADE
+);
+DROP TABLE IF EXISTS ims.user_password;
+CREATE TABLE ims.user_password(
+user_id INT,
+password VARBINARY(128) NOT NULL,
+FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE
+);
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke1', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke2', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke3', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
@@ -31,3 +76,5 @@ insert into ims.order_items(order_id, item_id) values(3, 1);
 insert into ims.order_items(order_id, item_id) values(3, 2);
 INSERT INTO ims.user(first_name, last_name, username) VALUES('Luke','Conway','Admin');
 INSERT INTO ims.user_password(user_id, password) VALUES('1',AES_ENCRYPT('securePass','Admin'));
+INSERT INTO ims.user(first_name, last_name, username) VALUES('Bob','McDuck','Manager');
+INSERT INTO ims.user_password(user_id, password) VALUES('1',AES_ENCRYPT('managerPass','Manager'));

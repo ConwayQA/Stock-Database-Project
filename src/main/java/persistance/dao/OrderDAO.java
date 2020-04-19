@@ -26,8 +26,9 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		List<Long> itemIDs = readItemIDs(id);
 		BigDecimal totalPrice = BigDecimal.valueOf(resultSet.getDouble("total_price"));
 		LocalDate date = (resultSet.getDate("date_ordered")).toLocalDate();
+		Long userID = (long) resultSet.getInt("user_id");
 		
-		return new Order(id, customerID, itemIDs, totalPrice, date);
+		return new Order(id, customerID, itemIDs, totalPrice, date, userID);
 	}
 
 	@Override

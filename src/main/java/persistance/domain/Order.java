@@ -12,35 +12,38 @@ public class Order {
 	private List<Long> itemIDs = new ArrayList<>();
 	private BigDecimal totalPrice;
 	private LocalDate date;
+	private Long userID;
 	
-	public Order(Long id, Long customerID, List<Long> itemIDs) {
+	public Order(Long id, Long customerID, List<Long> itemIDs, Long userID) {
 		super();
 		this.id = id;
 		this.customerID = customerID;
 		this.itemIDs = itemIDs;
 	}
 	
-	public Order(Long customerID, List<Long> itemIDs) {
+	public Order(Long customerID, List<Long> itemIDs, Long userID) {
 		super();
 		this.customerID = customerID;
 		this.itemIDs = itemIDs;
 	}
 	
-	public Order(Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date) {
+	public Order(Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date, Long userID) {
 		super();
 		this.customerID = customerID;
 		this.itemIDs = itemIDs;
 		this.totalPrice = totalPrice;
 		this.date = date;
+		this.userID = userID;
 	}
 	
-	public Order(Long id, Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date) {
+	public Order(Long id, Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date, Long userID) {
 		super();
 		this.id = id;
 		this.customerID = customerID;
 		this.itemIDs = itemIDs;
 		this.totalPrice = totalPrice;
 		this.date = date;
+		this.userID = userID;
 	}
 
 	public Long getId() {
@@ -86,7 +89,7 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order ID: " + id + " Customer ID: " + customerID + " Total Price: £" + totalPrice +
-				" Date Ordered: " + date ;
+				" Date Ordered: " + date + " userID: " + userID;
 	}
 	
 	//Method from christophperrins to override hashcode()
@@ -99,6 +102,7 @@ public class Order {
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((itemIDs == null) ? 0 : itemIDs.hashCode());
 		result = prime * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
+		result = prime * result + ((userID == null) ? 0 : userID.hashCode());
 		return result;
 	}
 
@@ -154,6 +158,13 @@ public class Order {
 				return false;
 			}
 			
+		}
+		if (userID == null) {
+			if(compareOrder.userID != null) {
+				return false;
+			}
+		} else if (!userID.equals(compareOrder.userID)) {
+			return false;
 		}
 		return true;
 	}

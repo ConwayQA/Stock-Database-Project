@@ -8,9 +8,9 @@ public interface CrudController<T> {
 	
 	List<T> readAll();
 	
-	T create();
+	T create(Long userID);
 	
-	T update();
+	T update(Long userID);
 	
 	void delete();
 	

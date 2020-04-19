@@ -41,21 +41,21 @@ public class CustomerController implements CrudController<Customer>{
 	}
 
 	@Override
-	public Customer create() {
+	public Customer create(Long userID) {
 		Customer tempCustomer = inputCustomerData();
 		Customer customer = customerServices.create(new Customer(tempCustomer.getFirstName(), tempCustomer.getLastName(),
-														tempCustomer.getAddress(), tempCustomer.getEmail(), tempCustomer.getPostcode()));
+														tempCustomer.getAddress(), tempCustomer.getEmail(), tempCustomer.getPostcode(), userID));
 		LOGGER.info("Customer created.");
 		return customer;
 	}
 
 	@Override
-	public Customer update() {
+	public Customer update(Long userID) {
 		LOGGER.info("Please enter the id of the customer you would like to update");
 		Long id = Long.valueOf(getInput());
 		Customer tempCustomer = inputCustomerData();
 		Customer customer = customerServices.update(new Customer(id, tempCustomer.getFirstName(), tempCustomer.getLastName(),
-														tempCustomer.getAddress(), tempCustomer.getEmail(), tempCustomer.getPostcode()));
+														tempCustomer.getAddress(), tempCustomer.getEmail(), tempCustomer.getPostcode(), userID));
 		LOGGER.info("Customer updated");
 		return customer;
 	}
