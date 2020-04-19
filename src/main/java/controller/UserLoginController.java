@@ -19,7 +19,7 @@ public class UserLoginController implements LoginController<User>{
 	public User login() {
 		LOGGER.info("Enter Username: ");
 		String username = InputScanner.getInput();
-		LOGGER.info("Enter Username: ");
+		LOGGER.info("Enter Password: ");
 		String password = InputScanner.getInput();
 		
 		User user = userLogin.login(username, password);

@@ -12,7 +12,7 @@ public class UserLoginServices implements LoginService<User>{
 	
 	@Override
 	public User login(String username, String password) {
-		userLogin.login(username, password);
-		return null;
+		return userLogin.login(username, password);
+		
 	}
 }

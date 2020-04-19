@@ -11,7 +11,7 @@ CREATE TABLE ims.orders(order_id INT AUTO_INCREMENT,customer_id INT,user_id INT,
 drop table if exists ims.order_items;
 CREATE TABLE ims.order_items(order_id INT,item_id INT,FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE,FOREIGN KEY (item_id) REFERENCES ims.items (item_id) ON DELETE CASCADE);
 drop table if exists ims.user_password;
-CREATE TABLE ims.user_password(user_id INT,password VARBINARY(128) NOT NULL,FOREIGN KEY (user_id) REFERENCES user (user_id));
+CREATE TABLE ims.user_password(user_id INT,password VARBINARY(128) NOT NULL,FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE);
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke1', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke2', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
 insert into ims.customers(first_name, last_name, address, email, postcode) values('Luke3', 'Conway', '30 Test Road', 'Test@tester.com', 'testing');
@@ -29,3 +29,5 @@ insert into ims.order_items(order_id, item_id) values(2, 2);
 insert into ims.order_items(order_id, item_id) values(2, 3);
 insert into ims.order_items(order_id, item_id) values(3, 1);
 insert into ims.order_items(order_id, item_id) values(3, 2);
+INSERT INTO ims.user(first_name, last_name, username) VALUES('Luke','Conway','Admin');
+INSERT INTO ims.user_password(user_id, password) VALUES('1',AES_ENCRYPT('securePass','Admin'));

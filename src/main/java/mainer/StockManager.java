@@ -36,13 +36,18 @@ public class StockManager {
 
 		DAOConnect.setUsername(username);
 		DAOConnect.setPassword(password);
-		DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
 		
+		LOGGER.info("Would you like to reset the databases? [Y/N]");
+		String resetter = InputScanner.getInput();
+		if (resetter.toUpperCase().contentEquals("Y")) {
+			DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
+		}
+				
 		
-//		currentUser = userLogin();
-//		if (currentUser.isLoggedIn()) {
-//			endApp = false;
-//		}
+		currentUser = userLogin();
+		if (currentUser.isLoggedIn()) {
+			endApp = false;
+		}
 		
 		//temp endApp Change for testing.
 		endApp = false;

@@ -2603,3 +2603,256 @@
 2020-04-17 17:15:56 INFO  ItemController:80 - Please enter the average play time (Minutes): 
 2020-04-17 17:15:56 INFO  ItemController:48 - Item created.
 2020-04-17 17:15:57 INFO  ItemController:64 - Please enter the id of the item you would like to delete
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1335)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2108)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1245)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - persistance.dao.DAOConnect.init(DAOConnect.java:53)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - controller.ItemControllerTest.init(ItemControllerTest.java:29)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - java.lang.reflect.Method.invoke(Method.java:498)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:46)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:77)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:83)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:39)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+2020-04-19 17:35:36 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2020-04-19 17:35:36 ERROR DAOConnect:60 - No database selected
+2020-04-19 17:35:36 INFO  ItemController:30 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30
+2020-04-19 17:35:36 INFO  ItemController:30 - ID: null Name: Settlers of Catan price: £30.0 genre: resource management minimum number of players: 3 maximum number of players: 5 average play time: 60
+2020-04-19 17:35:36 INFO  ItemController:30 - ID: null Name: Pandemic price: £40.0 genre: Players vs game minimum number of players: 1 maximum number of players: 6 average play time: 60
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1335)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2108)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1245)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - persistance.dao.DAOConnect.init(DAOConnect.java:53)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - controller.ItemControllerTest.init(ItemControllerTest.java:29)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - java.lang.reflect.Method.invoke(Method.java:498)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:46)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:77)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:83)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:39)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+2020-04-19 17:35:37 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2020-04-19 17:35:37 ERROR DAOConnect:60 - No database selected
+2020-04-19 17:35:37 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-19 17:35:37 INFO  ItemController:40 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1335)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2108)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1245)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - persistance.dao.DAOConnect.init(DAOConnect.java:53)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - controller.ItemControllerTest.init(ItemControllerTest.java:29)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - java.lang.reflect.Method.invoke(Method.java:498)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:46)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:77)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:83)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:39)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+2020-04-19 17:35:38 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2020-04-19 17:35:38 ERROR DAOConnect:60 - No database selected
+2020-04-19 17:35:38 INFO  ItemController:70 - Please enter the items name: 
+2020-04-19 17:35:38 INFO  ItemController:72 - Please enter the items price: 
+2020-04-19 17:35:38 INFO  ItemController:74 - Please enter the items genre: 
+2020-04-19 17:35:38 INFO  ItemController:76 - Please enter the items minimum number of players: 
+2020-04-19 17:35:38 INFO  ItemController:78 - Please enter the items maximum number of players: 
+2020-04-19 17:35:38 INFO  ItemController:80 - Please enter the average play time (Minutes): 
+2020-04-19 17:35:38 INFO  ItemController:48 - Item created.
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1335)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2108)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1245)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - persistance.dao.DAOConnect.init(DAOConnect.java:53)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - controller.ItemControllerTest.init(ItemControllerTest.java:29)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - java.lang.reflect.Method.invoke(Method.java:498)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:46)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:77)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:83)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:39)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+2020-04-19 17:35:40 DEBUG DAOConnect:58 - org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2020-04-19 17:35:40 ERROR DAOConnect:60 - No database selected
+2020-04-19 17:35:40 INFO  ItemController:64 - Please enter the id of the item you would like to delete
+2020-04-19 17:35:43 INFO  StockManager:32 - Enter Admin username
+2020-04-19 17:36:27 INFO  StockManager:34 - Enter Admin password
+2020-04-19 17:37:04 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 17:37:09 INFO  UserController:20 - Enter Username: 
+2020-04-19 17:37:15 INFO  UserController:22 - Enter Username: 
+2020-04-19 17:37:26 DEBUG UserDAO:32 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-19 17:37:26 ERROR UserDAO:33 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-19 18:14:36 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:14:38 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:14:50 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:14:52 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:14:58 INFO  UserController:22 - Enter Username: 
+2020-04-19 18:15:04 DEBUG UserDAO:33 - [Ljava.lang.StackTraceElement;@23a5fd2
+2020-04-19 18:15:04 ERROR UserDAO:34 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-19 18:16:38 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:16:40 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:16:42 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:16:43 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:16:47 INFO  UserController:22 - Enter Username: 
+2020-04-19 18:16:53 DEBUG UserDAO:33 - [Ljava.lang.StackTraceElement;@3cfdd820
+2020-04-19 18:16:53 ERROR UserDAO:34 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''Admin' at line 1
+2020-04-19 18:20:19 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:20:23 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:20:32 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:20:35 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:20:38 INFO  UserController:22 - Enter Username: 
+2020-04-19 18:20:43 DEBUG UserDAO:34 - [Ljava.lang.StackTraceElement;@51a9ad5e
+2020-04-19 18:20:43 ERROR UserDAO:35 - Illegal operation on empty result set.
+2020-04-19 18:21:27 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:21:29 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:21:30 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:21:32 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:21:38 INFO  UserController:22 - Enter Username: 
+2020-04-19 18:21:45 DEBUG UserDAO:34 - [Ljava.lang.StackTraceElement;@51a9ad5e
+2020-04-19 18:21:45 ERROR UserDAO:35 - Illegal operation on empty result set.
+2020-04-19 18:26:48 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:26:58 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:26:59 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:27:02 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:27:09 INFO  UserController:22 - Enter Username: 
+2020-04-19 18:27:15 DEBUG UserDAO:34 - [Ljava.lang.StackTraceElement;@6aa8e115
+2020-04-19 18:27:15 ERROR UserDAO:35 - Illegal operation on empty result set.
+2020-04-19 18:29:46 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:29:48 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:30:48 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:30:55 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:30:56 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:31:36 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:31:53 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:32:01 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:32:03 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:32:05 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:32:09 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:32:15 INFO  UserController:22 - Enter Username: 
+2020-04-19 18:38:06 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:38:08 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:38:10 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:38:56 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:39:09 INFO  UserController:22 - Enter Password: 
+2020-04-19 18:46:45 INFO  StockManager:32 - Enter Admin username
+2020-04-19 18:46:48 INFO  StockManager:34 - Enter Admin password
+2020-04-19 18:46:50 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 18:46:54 INFO  UserController:20 - Enter Username: 
+2020-04-19 18:46:57 INFO  UserController:22 - Enter Password: 
+2020-04-19 18:47:00 INFO  UserController:27 - Login Successful
+2020-04-19 18:47:00 INFO  StockManager:61 - Which entity would you like to use?
+2020-04-19 18:47:00 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-19 18:47:00 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-19 18:47:00 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-19 18:47:00 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-19 18:47:00 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-19 19:09:18 ERROR Domain:43 - Invalid selection please try again
+2020-04-19 19:09:34 INFO  StockManager:32 - Enter Admin username
+2020-04-19 19:09:37 INFO  StockManager:34 - Enter Admin password
+2020-04-19 19:09:38 INFO  StockManager:40 - Would you like to reset the databases? [Y/N]
+2020-04-19 19:09:42 INFO  UserController:20 - Enter Username: 
+2020-04-19 19:09:45 INFO  UserController:22 - Enter Password: 
+2020-04-19 19:09:52 INFO  UserController:27 - Login Successful
+2020-04-19 19:09:52 INFO  StockManager:61 - Which entity would you like to use?
+2020-04-19 19:09:52 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-19 19:09:52 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-19 19:09:52 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-19 19:09:52 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-19 19:09:52 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-19 19:09:57 INFO  StockManager:66 - What would you like to do with customer:
+2020-04-19 19:09:57 INFO  ControllerActions:32 - CREATE: To save a new record to the database
+2020-04-19 19:09:57 INFO  ControllerActions:32 - READ: To read a record from the database
+2020-04-19 19:09:57 INFO  ControllerActions:32 - READALL: To read all records from the database
+2020-04-19 19:09:57 INFO  ControllerActions:32 - UPDATE: To update a record on the database with new information
+2020-04-19 19:09:57 INFO  ControllerActions:32 - DELETE: To remove a record from the database
+2020-04-19 19:09:57 INFO  ControllerActions:32 - RETURN: To return to table selection
+2020-04-19 19:09:59 INFO  CustomerController:36 - Please enter the customer's ID: 
