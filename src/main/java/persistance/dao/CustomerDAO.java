@@ -1,6 +1,7 @@
 package persistance.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,8 +45,10 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 	
 	@Override
 	public Customer read(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM customers WHERE customer_id = " + id.intValue());) {
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers WHERE customer_id = ?");) {
+			statement.setInt(1, id.intValue());
+			ResultSet resultSet = statement.executeQuery();
 			resultSet.next();
 			return customerFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -57,12 +60,14 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public Customer create(Customer createCustomer) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO customers(first_name, last_name, address, email, postcode) VALUES('" + 
-										createCustomer.getFirstName() + "','" + createCustomer.getLastName() + "','" + 
-										createCustomer.getAddress() + "','" + createCustomer.getEmail() + "','" + 
-										createCustomer.getPostcode() + "')");
-			
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO customers(first_name, last_name, address, email, postcode) VALUES(?,?,?,?,?)");) {
+			statement.setString(1, createCustomer.getFirstName());
+			statement.setString(2, createCustomer.getLastName());
+			statement.setString(3, createCustomer.getAddress());
+			statement.setString(4, createCustomer.getEmail());
+			statement.setString(5, createCustomer.getPostcode());
+			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -73,11 +78,15 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public Customer update(Customer updateCustomer) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("UPDATE customers SET first_name ='" + updateCustomer.getFirstName() + "', last_name ='" + 
-										updateCustomer.getLastName() + "', address ='" + updateCustomer.getAddress() + "', email ='" + 
-										updateCustomer.getEmail() + "', postcode ='" + updateCustomer.getPostcode() + "' WHERE customer_id =" + 
-										updateCustomer.getId().intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("UPDATE customers SET first_name = ?, last_name = ?, address = ?, email = ?, postcode = ? WHERE customer_id = ?");) {
+			statement.setString(1, updateCustomer.getFirstName());
+			statement.setString(2, updateCustomer.getLastName());
+			statement.setString(3, updateCustomer.getAddress());
+			statement.setString(4, updateCustomer.getEmail());
+			statement.setString(5, updateCustomer.getPostcode());
+			statement.setInt(6, updateCustomer.getId().intValue());
+			statement.executeUpdate();
 			return read(updateCustomer.getId());
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -88,8 +97,10 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 
 	@Override
 	public void delete(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE FROM customers WHERE customer_id = " + id.intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM customers WHERE customer_id = ?");) {
+			statement.setInt(1, id.intValue());
+			statement.executeUpdate();
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

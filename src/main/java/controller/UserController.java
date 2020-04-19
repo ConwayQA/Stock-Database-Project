@@ -43,7 +43,7 @@ public class UserController implements CrudController<User>{
 	@Override
 	public User create() {
 		User tempUser = inputUserData();
-		User user = userServices.create(new User(tempUser.getFirstName(), tempUser.getLastName(), tempUser.getUsername()));
+		User user = userServices.create(new User(tempUser.getFirstName(), tempUser.getLastName(), tempUser.getUsername(), tempUser.getPassword()));
 		LOGGER.info("User created.");
 		return user;
 	}
@@ -53,7 +53,7 @@ public class UserController implements CrudController<User>{
 		LOGGER.info("Please enter the id of the user you would like to update");
 		Long id = Long.valueOf(getInput());
 		User tempUser = inputUserData();
-		User user = userServices.update(new User(id, tempUser.getFirstName(), tempUser.getLastName(), tempUser.getUsername()));
+		User user = userServices.update(new User(id, tempUser.getFirstName(), tempUser.getLastName(), tempUser.getUsername(), tempUser.getPassword()));
 		LOGGER.info("User updated");
 		return user;
 	}
@@ -70,9 +70,11 @@ public class UserController implements CrudController<User>{
 		String firstName = getInput();
 		LOGGER.info("Please enter the user's last name: ");
 		String lastName = getInput();
-		LOGGER.info("Please enter the user's username ");
+		LOGGER.info("Please enter the user's username: ");
 		String username = getInput();
-		return new User(firstName, lastName, username);
+		LOGGER.info("Please enter the user's password: ");
+		String password = getInput();
+		return new User(firstName, lastName, username, password);
 	}
 	
 

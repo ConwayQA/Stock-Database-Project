@@ -2,6 +2,8 @@ package persistance.dao;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,8 +51,9 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	
 	@Override
 	public Order read(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM orders WHERE order_id = " + id);) {
+		try (Connection connection = databaseConnect(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders WHERE order_id = ?");) {
+			statement.setInt(1, id.intValue());
+			ResultSet resultSet = statement.executeQuery();
 			Order tempOrder;
 			resultSet.next();
 			tempOrder = orderFromResultSet(resultSet);
@@ -71,11 +74,12 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		if (createOrder.getDate() == null) {
 			createOrder.setDate(LocalDate.now());
 		}
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO orders(customer_id, total_price, date_ordered) VALUES('" + 
-										createOrder.getCustomerID().intValue() + "','" + createOrder.getTotalPrice().doubleValue() +
-										"','" + createOrder.getDate() + "')");
-			
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO orders(customer_id, total_price, date_ordered) VALUES(?, ?, ?)");) {
+			statement.setInt(1, createOrder.getCustomerID().intValue());
+			statement.setDouble(2, createOrder.getTotalPrice().doubleValue());
+			statement.setDate(3, Date.valueOf(createOrder.getDate()));
+			statement.executeUpdate();
 			writeOrderItems(createOrder);
 			return readLast();
 		} catch (SQLException sqle) {
@@ -93,10 +97,13 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		if (updateOrder.getDate() == null) {
 			updateOrder.setDate(LocalDate.now());
 		}
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("UPDATE orders SET customer_id ='" + updateOrder.getCustomerID().intValue() + "', total_price ='" + 
-										updateOrder.getTotalPrice().doubleValue() + "', date_ordered ='" + updateOrder.getDate() + 
-										"' WHERE order_id =" + updateOrder.getId().intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("UPDATE orders SET customer_id = ?, total_price = ?, date_ordered = ? WHERE order_id = ?");) {
+			statement.setInt(1, updateOrder.getCustomerID().intValue());
+			statement.setDouble(2, updateOrder.getTotalPrice().doubleValue());
+			statement.setDate(3, Date.valueOf(updateOrder.getDate()));
+			statement.setInt(4, updateOrder.getId().intValue());
+			statement.executeUpdate();
 			writeOrderItems(updateOrder);
 			return read(updateOrder.getId());
 		} catch (SQLException sqle) {
@@ -108,9 +115,13 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 
 	@Override
 	public void delete(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE FROM orders WHERE order_id = " + id.intValue());
-			statement.executeUpdate("DELETE FROM order_items WHERE order_id = " + id.intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE order_id = ?");
+				PreparedStatement statement2 = connection.prepareStatement("DELETE FROM order_items WHERE order_id = ");) {
+			statement.setInt(1, id.intValue());
+			statement2.setInt(1, id.intValue());
+			statement.executeUpdate();
+			statement2.executeUpdate();
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());
@@ -133,8 +144,10 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	}
 	
 	public List<Long> readItemIDs(Long orderID) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT item_id FROM order_items WHERE order_id = " + orderID.intValue());) {
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("SELECT item_id FROM order_items WHERE order_id = ?");) {
+			statement.setInt(1, orderID.intValue());
+			ResultSet resultSet = statement.executeQuery();
 			List<Long> itemIDs = new ArrayList<>();
 			while (resultSet.next()) {
 				itemIDs.add(resultSet.getLong(1));
@@ -148,11 +161,15 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	}
 	
 	public void writeOrderItems(Order writeItemsOrder) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE FROM order_items WHERE order_id = " + writeItemsOrder.getId().intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM order_items WHERE order_id = ");
+				PreparedStatement statement2 = connection.prepareStatement("INSERT INTO order_items(order_id, item_id) VALUES(?, ?)");) {
+			statement.setInt(1, writeItemsOrder.getId().intValue());
+			statement.executeUpdate();
 			for (Long itemID:writeItemsOrder.getItemIDs()) {
-				statement.executeUpdate("INSERT INTO order_items(order_id, item_id) VALUES('" + 
-						writeItemsOrder.getId().intValue() + "','" + itemID.intValue() + "')");
+				statement2.setInt(1, writeItemsOrder.getId().intValue());
+				statement2.setInt(2, itemID.intValue());
+				statement2.executeUpdate();
 			}
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -163,8 +180,10 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	public BigDecimal calcTotalPrice(List<Long> itemIDs) {
 		BigDecimal total = new BigDecimal(0);
 		for (Long id: itemIDs) {
-			try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-				ResultSet resultSet = statement.executeQuery("SELECT price FROM items WHERE item_id = " + id.intValue() + "LIMIT 1");) {
+			try (Connection connection = databaseConnect(); 
+					PreparedStatement statement = connection.prepareStatement("SELECT price FROM items WHERE item_id = ? LIMIT 1");) {
+				statement.setInt(1, id.intValue());
+				ResultSet resultSet = statement.executeQuery();
 					total = total.add(BigDecimal.valueOf(resultSet.getLong(1)));
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());

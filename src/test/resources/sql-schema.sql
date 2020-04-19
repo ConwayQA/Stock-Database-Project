@@ -31,3 +31,5 @@ insert into ims.order_items(order_id, item_id) values(3, 1);
 insert into ims.order_items(order_id, item_id) values(3, 2);
 INSERT INTO ims.user(first_name, last_name, username) VALUES('Luke','Conway','Admin');
 INSERT INTO ims.user_password(user_id, password) VALUES('1',AES_ENCRYPT('securePass','Admin'));
+INSERT INTO ims.user(first_name, last_name, username) VALUES('Bob','McDuck','Manager');
+INSERT INTO ims.user_password(user_id, password) VALUES('1',AES_ENCRYPT('managerPass','Manager'));

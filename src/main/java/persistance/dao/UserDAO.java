@@ -1,6 +1,7 @@
 package persistance.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +22,8 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 		String firstName = resultSet.getString("first_name");
 		String surname = resultSet.getString("last_name");
 		String username = resultSet.getString("username");
-		return new User(id, firstName, surname, username);
+		String password = resultSet.getString("password");
+		return new User(id, firstName, surname, username, password);
 	}
 	
 	@Override
@@ -41,8 +43,10 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 	}
 	
 	public User read(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM user WHERE user_id = " + id.intValue());) {
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM user WHERE user_id = ?");) {
+			statement.setInt(1, id.intValue());
+			ResultSet resultSet = statement.executeQuery();
 			resultSet.next();
 			return userFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -54,11 +58,12 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 
 	@Override
 	public User create(User createUser) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO user(first_name, last_name, username) VALUES('" + 
-										createUser.getFirstName() + "','" + createUser.getLastName() + "','" + 
-										createUser.getUsername() + "')");
-			
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO user(first_name, last_name, username) VALUES(?,?,?)");) {
+			statement.setString(1, createUser.getFirstName());
+			statement.setString(2, createUser.getLastName());
+			statement.setString(3, createUser.getUsername());
+			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -68,11 +73,14 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 	}
 	
 	@Override
-	public User update(User updateCustomer) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("UPDATE user SET first_name ='" + updateCustomer.getFirstName() + "', last_name ='" + 
-										updateCustomer.getLastName() + "', username ='" + updateCustomer.getUsername() + 
-										"' WHERE user_id =" + updateCustomer.getUserID().intValue());
+	public User update(User updateUser) {
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("UPDATE user SET first_name = ?, last_name = ?, username = ? WHERE user_id = ?");) {
+			statement.setString(1, updateUser.getFirstName());
+			statement.setString(2, updateUser.getLastName());
+			statement.setString(3, updateUser.getUsername());
+			statement.setInt(4, updateUser.getUserID().intValue());
+			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -83,14 +91,18 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 
 	@Override
 	public void delete(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM user WHERE user_id = " + id.intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("DELETE * FROM user WHERE user_id = ?");) {
+			statement.setInt(1, id.intValue());
+			statement.executeUpdate();
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());
 			}
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE * FROM user_password WHERE user_id = " + id.intValue());
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("DELETE * FROM user_password WHERE user_id = ?");) {
+			statement.setInt(1, id.intValue());
+			statement.executeUpdate();
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

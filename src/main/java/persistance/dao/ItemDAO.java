@@ -2,6 +2,7 @@ package persistance.dao;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -46,8 +47,10 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	
 	@Override
 	public Item read(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM items WHERE item_id = " + id.intValue());) {
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE item_id = ?");) {
+			statement.setInt(1, id.intValue());
+			ResultSet resultSet = statement.executeQuery();
 			resultSet.next();
 			return itemFromResultSet(resultSet);
 		} catch (SQLException sqle) {
@@ -59,11 +62,15 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public Item create(Item createItem) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time) VALUES('" + 
-										createItem.getName() + "','" + createItem.getPrice().doubleValue() + "','" + 
-										createItem.getGenre() + "','" + createItem.getMinPlayers().intValue() + "','" + 
-										createItem.getMaxPlayers().intValue() + "','" + createItem.getAvgPlayTime().intValue() + "')");
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time) VALUES(?,?,?,?,?,?)");) {
+			statement.setString(1, createItem.getName());
+			statement.setDouble(2, createItem.getPrice().doubleValue());
+			statement.setString(3, createItem.getGenre());
+			statement.setInt(4, createItem.getMinPlayers().intValue());
+			statement.setInt(5, createItem.getMaxPlayers().intValue());
+			statement.setInt(6, createItem.getAvgPlayTime().intValue());
+			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -74,12 +81,16 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public Item update(Item updateItem) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("UPDATE items SET name ='" + updateItem.getName() + "', price ='" + 
-										updateItem.getPrice().doubleValue() + "', genre ='" + updateItem.getGenre() + "', min_players ='" + 
-										updateItem.getMinPlayers().intValue() + "', max_players ='" + updateItem.getMaxPlayers().intValue() +
-										"', avg_play_time ='" + updateItem.getAvgPlayTime().intValue() + 
-										"' WHERE item_id =" + updateItem.getId().intValue());
+		try (Connection connection = databaseConnect();
+				PreparedStatement statement = connection.prepareStatement("UPDATE items SET name = ?, price = ?, genre = ?, min_players = ?, max_players = ?, avg_play_time = ? WHERE item_id = ?");) {
+			statement.setString(1, updateItem.getName());
+			statement.setDouble(2, updateItem.getPrice().doubleValue());
+			statement.setString(3, updateItem.getGenre());
+			statement.setInt(4, updateItem.getMinPlayers().intValue());
+			statement.setInt(5, updateItem.getMaxPlayers().intValue());
+			statement.setInt(6, updateItem.getAvgPlayTime().intValue());
+			statement.setInt(6, updateItem.getId().intValue());
+			statement.executeUpdate();
 			return read(updateItem.getId());
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -90,8 +101,9 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 
 	@Override
 	public void delete(Long id) {
-		try (Connection connection = databaseConnect(); Statement statement = connection.createStatement();) {
-			statement.executeUpdate("DELETE FROM items WHERE item_id = " + id.intValue());
+		try (Connection connection = databaseConnect(); PreparedStatement statement = connection.prepareStatement("DELETE FROM items WHERE item_id = ?");) {
+			statement.setInt(1, id.intValue());
+			statement.executeUpdate();
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

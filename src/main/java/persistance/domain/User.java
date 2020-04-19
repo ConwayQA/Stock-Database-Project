@@ -7,20 +7,23 @@ public class User {
 	private String lastName;
 	private String username;
 	private boolean loggedIn = false;
+	private String password;
 	
-	public User(String firstName, String lastName, String username) {
+	public User(String firstName, String lastName, String username, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
+		this.password = password;
 	}
 	
-	public User(Long userID, String firstName, String lastName, String username) {
+	public User(Long userID, String firstName, String lastName, String username, String password) {
 		super();
 		this.userID = userID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
+		this.password = password;
 	}
 
 	public Long getUserID() {
@@ -61,6 +64,14 @@ public class User {
 
 	public void setLoggedIn(boolean loggedIn) {
 		this.loggedIn = loggedIn;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

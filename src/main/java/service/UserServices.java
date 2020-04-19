@@ -13,8 +13,6 @@ public class UserServices implements CrudService<User>{
 		this.userDAO = userDAO;
 	}
 	
-	
-	
 	@Override
 	public User read(Long id) {
 		return userDAO.read(id);

@@ -16,8 +16,8 @@ public class UserTest {
 	
 	@Before
 	public void setUp() {
-		user = new User(1L, "Luke", "Conway", "Admin");
-		other = new User(1L, "Luke", "Conway", "Admin");
+		user = new User(1L, "Luke", "Conway", "Admin", "securePass");
+		other = new User(1L, "Luke", "Conway", "Admin", "securePass");
 	}
 	
 	@Test
@@ -125,7 +125,7 @@ public class UserTest {
 	
 	@Test
 	public void constructorWithoutId() {
-		User customer = new User( "Luke", "Conway", "Admin");
+		User customer = new User( "Luke", "Conway", "Admin", "securePass");
 		assertNull(customer.getUserID());
 		assertNotNull(customer.getFirstName());
 		assertNotNull(customer.getLastName());
