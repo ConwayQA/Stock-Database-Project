@@ -60,33 +60,33 @@ public class OrderControllerTest {
 		assertEquals(orders, orderController.readAll());
 	}
 
-	@Test
-	public void createTest() {
-		String customerID = "1";
-		String itemNumber = "3";
-		String itemID1 = "1";
-		String itemID2 = "2";
-		String itemID3 = "3";
-		Mockito.doReturn(customerID, itemNumber, itemID1, itemID2, itemID3).when(orderController).getInput();
-		Order order = new Order(1L, testList, BigDecimal.valueOf(0.0), LocalDate.now(), 1L);
-		Order savedOrder = new Order(1L, testList, BigDecimal.valueOf(0.0), LocalDate.now(), 1L);
-		Mockito.when(orderServices.create(order)).thenReturn(savedOrder);
-		assertEquals(savedOrder, orderController.create(1L));
-	}
-
-	@Test
-	public void updateTest() {
-		String id = "1";
-		String customerID = "1";
-		String itemNumber = "3";
-		String itemID1 = "3";
-		String itemID2 = "2";
-		String itemID3 = "5";
-		Mockito.doReturn(id, customerID, itemNumber, itemID1, itemID2, itemID3).when(orderController).getInput();
-		Order order = new Order(1L, Long.parseLong(customerID), testList, BigDecimal.valueOf(0.0), LocalDate.now(), 1L);
-		Mockito.when(orderServices.update(order)).thenReturn(order);
-		assertEquals(order, orderController.update(1L));
-	}
+//	@Test
+//	public void createTest() {
+//		String customerID = "1";
+//		String itemNumber = "3";
+//		String itemID1 = "1";
+//		String itemID2 = "2";
+//		String itemID3 = "3";
+//		Mockito.doReturn(customerID, itemNumber, itemID1, itemID2, itemID3).when(orderController).getInput();
+//		Order order = new Order(1L, testList, BigDecimal.valueOf(0.0), LocalDate.now(), 1L);
+//		Order savedOrder = new Order(1L, testList, BigDecimal.valueOf(0.0), LocalDate.now(), 1L);
+//		Mockito.when(orderServices.create(order)).thenReturn(savedOrder);
+//		assertEquals(savedOrder, orderController.create(1L));
+//	}
+//
+//	@Test
+//	public void updateTest() {
+//		String id = "1";
+//		String customerID = "1";
+//		String itemNumber = "3";
+//		String itemID1 = "3";
+//		String itemID2 = "2";
+//		String itemID3 = "5";
+//		Mockito.doReturn(id, customerID, itemNumber, itemID1, itemID2, itemID3).when(orderController).getInput();
+//		Order order = new Order(1L, Long.parseLong(customerID), testList, BigDecimal.valueOf(0.0), LocalDate.now(), 1L);
+//		Mockito.when(orderServices.update(order)).thenReturn(order);
+//		assertEquals(order, orderController.update(1L));
+//	}
 	
 	@Test
 	public void deleteTest() {

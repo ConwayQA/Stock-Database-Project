@@ -12278,3 +12278,128 @@
 2020-04-20 10:12:50 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
 2020-04-20 10:12:50 INFO  Domain:31 - USERS: Information on staff users of the system
 2020-04-20 10:12:50 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-20 10:16:32 INFO  CustomerController:29 - ID: null First Name: Luke1 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1
+2020-04-20 10:16:32 INFO  CustomerController:29 - ID: null First Name: Luke2 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1
+2020-04-20 10:16:32 INFO  CustomerController:29 - ID: null First Name: Luke3 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 2
+2020-04-20 10:16:33 INFO  CustomerController:36 - Please enter the customer's ID: 
+2020-04-20 10:16:33 INFO  CustomerController:39 - ID: null First Name: Luke1 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1
+2020-04-20 10:16:33 INFO  CustomerController:54 - Please enter the id of the customer you would like to update
+2020-04-20 10:16:33 INFO  CustomerController:71 - Please enter the customer's first name: 
+2020-04-20 10:16:33 INFO  CustomerController:73 - Please enter the customer's last name: 
+2020-04-20 10:16:33 INFO  CustomerController:75 - Please enter the customer's address: 
+2020-04-20 10:16:33 INFO  CustomerController:77 - Please enter the customer's email: 
+2020-04-20 10:16:33 INFO  CustomerController:79 - Please enter the customer's postcode: 
+2020-04-20 10:16:33 INFO  CustomerController:59 - Customer updated
+2020-04-20 10:16:34 INFO  CustomerController:71 - Please enter the customer's first name: 
+2020-04-20 10:16:34 INFO  CustomerController:73 - Please enter the customer's last name: 
+2020-04-20 10:16:34 INFO  CustomerController:75 - Please enter the customer's address: 
+2020-04-20 10:16:34 INFO  CustomerController:77 - Please enter the customer's email: 
+2020-04-20 10:16:34 INFO  CustomerController:79 - Please enter the customer's postcode: 
+2020-04-20 10:16:34 INFO  CustomerController:48 - Customer created.
+2020-04-20 10:16:35 INFO  CustomerController:65 - Please enter the id of the customer you would like to delete
+2020-04-20 10:16:46 DEBUG OrderDAO:131 - [Ljava.lang.StackTraceElement;@1b2c4efb
+2020-04-20 10:16:46 ERROR OrderDAO:132 - Parameter index out of range (1 > number of parameters, which is 0).
+2020-04-20 10:16:52 INFO  ControllerActions:32 - CREATE: To save a new record to the database
+2020-04-20 10:16:52 INFO  ControllerActions:32 - READ: To read a record from the database
+2020-04-20 10:16:52 INFO  ControllerActions:32 - READALL: To read all records from the database
+2020-04-20 10:16:52 INFO  ControllerActions:32 - UPDATE: To update a record on the database with new information
+2020-04-20 10:16:52 INFO  ControllerActions:32 - DELETE: To remove a record from the database
+2020-04-20 10:16:52 INFO  ControllerActions:32 - RETURN: To return to table selection
+2020-04-20 10:16:53 INFO  ItemController:30 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30 userID: 1
+2020-04-20 10:16:53 INFO  ItemController:30 - ID: null Name: Settlers of Catan price: £30.0 genre: resource management minimum number of players: 3 maximum number of players: 5 average play time: 60 userID: 2
+2020-04-20 10:16:53 INFO  ItemController:30 - ID: null Name: Pandemic price: £40.0 genre: Players vs game minimum number of players: 1 maximum number of players: 6 average play time: 60 userID: 1
+2020-04-20 10:16:54 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-20 10:16:54 INFO  ItemController:40 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30 userID: 1
+2020-04-20 10:16:55 INFO  ItemController:55 - Please enter the id of the item you would like to update
+2020-04-20 10:16:55 INFO  ItemController:72 - Please enter the items name: 
+2020-04-20 10:16:55 INFO  ItemController:74 - Please enter the items price: 
+2020-04-20 10:16:55 INFO  ItemController:76 - Please enter the items genre: 
+2020-04-20 10:16:55 INFO  ItemController:78 - Please enter the items minimum number of players: 
+2020-04-20 10:16:55 INFO  ItemController:80 - Please enter the items maximum number of players: 
+2020-04-20 10:16:55 INFO  ItemController:82 - Please enter the average play time (Minutes): 
+2020-04-20 10:16:55 INFO  ItemController:60 - Item updated.
+2020-04-20 10:16:56 INFO  ItemController:72 - Please enter the items name: 
+2020-04-20 10:16:56 INFO  ItemController:74 - Please enter the items price: 
+2020-04-20 10:16:56 INFO  ItemController:76 - Please enter the items genre: 
+2020-04-20 10:16:56 INFO  ItemController:78 - Please enter the items minimum number of players: 
+2020-04-20 10:16:56 INFO  ItemController:80 - Please enter the items maximum number of players: 
+2020-04-20 10:16:56 INFO  ItemController:82 - Please enter the average play time (Minutes): 
+2020-04-20 10:16:56 INFO  ItemController:49 - Item created.
+2020-04-20 10:16:57 INFO  ItemController:66 - Please enter the id of the item you would like to delete
+2020-04-20 10:16:58 INFO  OrderController:30 - Order ID: 1 Customer ID: 1 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 1
+2020-04-20 10:16:58 INFO  OrderController:30 - Order ID: 2 Customer ID: 2 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 2
+2020-04-20 10:16:58 INFO  OrderController:30 - Order ID: 3 Customer ID: 3 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 1
+2020-04-20 10:16:59 INFO  OrderController:37 - Please enter the order's ID: 
+2020-04-20 10:16:59 INFO  OrderController:40 - Order ID: 1 Customer ID: 1 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 1
+2020-04-20 10:17:00 INFO  OrderController:62 - Please enter the id of the order you would like to update
+2020-04-20 10:17:00 INFO  OrderController:64 - Please enter the customer's ID: 
+2020-04-20 10:17:00 INFO  OrderController:66 - Please enter the number of items being ordered: 
+2020-04-20 10:17:00 INFO  OrderController:70 - Please enter the ID of item number 1: 
+2020-04-20 10:17:00 INFO  OrderController:70 - Please enter the ID of item number 2: 
+2020-04-20 10:17:00 INFO  OrderController:70 - Please enter the ID of item number 3: 
+2020-04-20 10:17:00 INFO  OrderController:74 - Order updated.
+2020-04-20 10:17:01 INFO  OrderController:46 - Please enter the customer's ID: 
+2020-04-20 10:17:01 INFO  OrderController:48 - Please enter the number of items being ordered: 
+2020-04-20 10:17:01 INFO  OrderController:52 - Please enter the ID of item number 1: 
+2020-04-20 10:17:01 INFO  OrderController:52 - Please enter the ID of item number 2: 
+2020-04-20 10:17:01 INFO  OrderController:52 - Please enter the ID of item number 3: 
+2020-04-20 10:17:01 INFO  OrderController:56 - Order created.
+2020-04-20 10:17:02 INFO  OrderController:80 - Please enter the id of the order you would like to delete
+2020-04-20 10:17:08 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-20 10:17:08 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-20 10:17:08 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-20 10:17:08 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-20 10:17:08 INFO  Domain:31 - END: Closes the application once you are done
+2020-04-20 10:28:49 INFO  CustomerController:29 - ID: null First Name: Luke1 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1
+2020-04-20 10:28:49 INFO  CustomerController:29 - ID: null First Name: Luke2 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1
+2020-04-20 10:28:49 INFO  CustomerController:29 - ID: null First Name: Luke3 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 2
+2020-04-20 10:28:50 INFO  CustomerController:36 - Please enter the customer's ID: 
+2020-04-20 10:28:50 INFO  CustomerController:39 - ID: null First Name: Luke1 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1
+2020-04-20 10:28:51 INFO  CustomerController:54 - Please enter the id of the customer you would like to update
+2020-04-20 10:28:51 INFO  CustomerController:71 - Please enter the customer's first name: 
+2020-04-20 10:28:51 INFO  CustomerController:73 - Please enter the customer's last name: 
+2020-04-20 10:28:51 INFO  CustomerController:75 - Please enter the customer's address: 
+2020-04-20 10:28:51 INFO  CustomerController:77 - Please enter the customer's email: 
+2020-04-20 10:28:51 INFO  CustomerController:79 - Please enter the customer's postcode: 
+2020-04-20 10:28:51 INFO  CustomerController:59 - Customer updated
+2020-04-20 10:28:52 INFO  CustomerController:65 - Please enter the id of the customer you would like to delete
+2020-04-20 10:29:02 DEBUG OrderDAO:131 - [Ljava.lang.StackTraceElement;@65fe9e33
+2020-04-20 10:29:02 ERROR OrderDAO:132 - Parameter index out of range (1 > number of parameters, which is 0).
+2020-04-20 10:29:08 INFO  ControllerActions:32 - CREATE: To save a new record to the database
+2020-04-20 10:29:08 INFO  ControllerActions:32 - READ: To read a record from the database
+2020-04-20 10:29:08 INFO  ControllerActions:32 - READALL: To read all records from the database
+2020-04-20 10:29:08 INFO  ControllerActions:32 - UPDATE: To update a record on the database with new information
+2020-04-20 10:29:08 INFO  ControllerActions:32 - DELETE: To remove a record from the database
+2020-04-20 10:29:08 INFO  ControllerActions:32 - RETURN: To return to table selection
+2020-04-20 10:29:09 INFO  ItemController:30 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30 userID: 1
+2020-04-20 10:29:09 INFO  ItemController:30 - ID: null Name: Settlers of Catan price: £30.0 genre: resource management minimum number of players: 3 maximum number of players: 5 average play time: 60 userID: 2
+2020-04-20 10:29:09 INFO  ItemController:30 - ID: null Name: Pandemic price: £40.0 genre: Players vs game minimum number of players: 1 maximum number of players: 6 average play time: 60 userID: 1
+2020-04-20 10:29:10 INFO  ItemController:37 - Please enter the item's ID: 
+2020-04-20 10:29:10 INFO  ItemController:40 - ID: null Name: Carcassonne price: £20.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30 userID: 1
+2020-04-20 10:29:11 INFO  ItemController:55 - Please enter the id of the item you would like to update
+2020-04-20 10:29:11 INFO  ItemController:72 - Please enter the items name: 
+2020-04-20 10:29:11 INFO  ItemController:74 - Please enter the items price: 
+2020-04-20 10:29:11 INFO  ItemController:76 - Please enter the items genre: 
+2020-04-20 10:29:11 INFO  ItemController:78 - Please enter the items minimum number of players: 
+2020-04-20 10:29:11 INFO  ItemController:80 - Please enter the items maximum number of players: 
+2020-04-20 10:29:11 INFO  ItemController:82 - Please enter the average play time (Minutes): 
+2020-04-20 10:29:11 INFO  ItemController:60 - Item updated.
+2020-04-20 10:29:12 INFO  ItemController:72 - Please enter the items name: 
+2020-04-20 10:29:12 INFO  ItemController:74 - Please enter the items price: 
+2020-04-20 10:29:12 INFO  ItemController:76 - Please enter the items genre: 
+2020-04-20 10:29:12 INFO  ItemController:78 - Please enter the items minimum number of players: 
+2020-04-20 10:29:12 INFO  ItemController:80 - Please enter the items maximum number of players: 
+2020-04-20 10:29:12 INFO  ItemController:82 - Please enter the average play time (Minutes): 
+2020-04-20 10:29:12 INFO  ItemController:49 - Item created.
+2020-04-20 10:29:13 INFO  ItemController:66 - Please enter the id of the item you would like to delete
+2020-04-20 10:29:14 INFO  OrderController:30 - Order ID: 1 Customer ID: 1 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 1
+2020-04-20 10:29:14 INFO  OrderController:30 - Order ID: 2 Customer ID: 2 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 2
+2020-04-20 10:29:14 INFO  OrderController:30 - Order ID: 3 Customer ID: 3 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 1
+2020-04-20 10:29:15 INFO  OrderController:37 - Please enter the order's ID: 
+2020-04-20 10:29:15 INFO  OrderController:40 - Order ID: 1 Customer ID: 1 Total Price: £0.0 Date Ordered: 2020-04-20 userID: 1
+2020-04-20 10:29:16 INFO  OrderController:80 - Please enter the id of the order you would like to delete
+2020-04-20 10:29:22 INFO  Domain:31 - CUSTOMER: Information on store customers
+2020-04-20 10:29:22 INFO  Domain:31 - ITEMS: Details on items in stock
+2020-04-20 10:29:22 INFO  Domain:31 - ORDERS: Collection of customers purchases of items
+2020-04-20 10:29:22 INFO  Domain:31 - USERS: Information on staff users of the system
+2020-04-20 10:29:22 INFO  Domain:31 - END: Closes the application once you are done
