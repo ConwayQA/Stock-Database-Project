@@ -66,3 +66,9 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 * **Chris Perrins** - *Huge Coding inspiration and author of Hashcode methods* - [christophperrins](https://github.com/christophperrins)
 * **Nick Johnson** - *Massive influence from teaching all aspects of the development for this project.* - [nickrstewarttds] (https://github.com/nickrstewarttds)
+
+## Project Links
+
+* [Porject presentation] (https://docs.google.com/presentation/d/1TrNQplVnAPpAdIzv6l3Q7L1uG5-7R4nVaf4mELwHiz8/edit?usp=sharing)
+* [GitHub Project KanBan Board] (https://github.com/ConwayQA/Stock-Database-Project/projects/1)
+* [Trello Project Road Map] (https://trello.com/b/kjbP2J0J/qa-stock-database-project)
