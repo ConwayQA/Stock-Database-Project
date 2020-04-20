@@ -1,4 +1,4 @@
-Coverage: 5%
+Coverage: 59.1%
 
 # Stock Database Management Project
 
