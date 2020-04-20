@@ -82,6 +82,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			statement.setDate(3, Date.valueOf(createOrder.getDate()));
 			statement.setInt(4, createOrder.getUserID().intValue());
 			statement.executeUpdate();
+			removeOrderItems(createOrder);
 			writeOrderItems(createOrder);
 			return readLast();
 		} catch (SQLException sqle) {
@@ -100,12 +101,13 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			updateOrder.setDate(LocalDate.now());
 		}
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("UPDATE orders SET customer_id = ?, total_price = ?, date_ordered = ?, user_id = ? WHERE order_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("UPDATE orders SET customer_id = ?, total_price = ?, date_ordered = ?, user_id = ? WHERE order_id = ? ");) {
 			statement.setInt(1, updateOrder.getCustomerID().intValue());
 			statement.setDouble(2, updateOrder.getTotalPrice().doubleValue());
 			statement.setDate(3, Date.valueOf(updateOrder.getDate()));
 			statement.setInt(4, updateOrder.getUserID().intValue());
 			statement.setInt(5, updateOrder.getId().intValue());
+			removeOrderItems(updateOrder);
 			statement.executeUpdate();
 			writeOrderItems(updateOrder);
 			return read(updateOrder.getId());
@@ -165,15 +167,23 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	
 	public void writeOrderItems(Order writeItemsOrder) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("DELETE FROM order_items WHERE order_id = ");
 				PreparedStatement statement2 = connection.prepareStatement("INSERT INTO order_items(order_id, item_id) VALUES(?, ?)");) {
-			statement.setInt(1, writeItemsOrder.getId().intValue());
-			statement.executeUpdate();
 			for (Long itemID:writeItemsOrder.getItemIDs()) {
 				statement2.setInt(1, writeItemsOrder.getId().intValue());
 				statement2.setInt(2, itemID.intValue());
 				statement2.executeUpdate();
 			}
+		} catch (SQLException sqle) {
+			LOGGER.debug(sqle.getStackTrace());
+			LOGGER.error(sqle.getMessage());
+		}
+	}
+	
+	public void removeOrderItems(Order removeItemsOrder) {
+		try (Connection connection = databaseConnect(); 
+				PreparedStatement statement = connection.prepareStatement("DELETE FROM order_items WHERE order_id = ?");) {
+			statement.setInt(1, removeItemsOrder.getId().intValue());
+			statement.executeUpdate();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -187,6 +197,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 					PreparedStatement statement = connection.prepareStatement("SELECT price FROM items WHERE item_id = ? LIMIT 1");) {
 				statement.setInt(1, id.intValue());
 				ResultSet resultSet = statement.executeQuery();
+				resultSet.next();
 					total = total.add(BigDecimal.valueOf(resultSet.getLong(1)));
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());

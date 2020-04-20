@@ -19,12 +19,14 @@ public class Order {
 		this.id = id;
 		this.customerID = customerID;
 		this.itemIDs = itemIDs;
+		this.userID = userID;
 	}
 	
 	public Order(Long customerID, List<Long> itemIDs, Long userID) {
 		super();
 		this.customerID = customerID;
 		this.itemIDs = itemIDs;
+		this.userID = userID;
 	}
 	
 	public Order(Long customerID, List<Long> itemIDs, BigDecimal totalPrice, LocalDate date, Long userID) {
