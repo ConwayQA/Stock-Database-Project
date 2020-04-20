@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.apache.log4j.Logger;
 
@@ -16,8 +15,8 @@ public class DAOConnect {
 	public static final Logger LOGGER = Logger.getLogger(DAOConnect.class);
 	
 	static String jdbcConnectionUrl = "jdbc:mysql://34.76.51.174:3306/ims";
-	public static String username = null;
-	public static String password = null;
+	private static String username = null;
+	private static String password = null;
 	
 	
 

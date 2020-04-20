@@ -26,12 +26,12 @@ public enum ControllerActions {
 	}
 	
 	public static String printActions() {
-		String tests = "";
+		StringBuilder tests = new StringBuilder();
 		for (ControllerActions action : ControllerActions.values()) {
-			tests += action.getDescription();
+			tests.append(action.getDescription());
 			LOGGER.info(action.getDescription());
 		}
-		return tests;
+		return tests.toString();
 	}
 	
 	public static ControllerActions getControllerAction() {

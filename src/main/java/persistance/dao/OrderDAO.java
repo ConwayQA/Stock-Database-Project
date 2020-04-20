@@ -54,11 +54,15 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	public Order read(Long id) {
 		try (Connection connection = databaseConnect(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM orders WHERE order_id = ?");) {
 			statement.setInt(1, id.intValue());
-			ResultSet resultSet = statement.executeQuery();
-			Order tempOrder;
+			Order tempOrder = null;
+			try (ResultSet resultSet = statement.executeQuery();) {
 			resultSet.next();
 			tempOrder = orderFromResultSet(resultSet);
 			tempOrder.setItemIDs(readItemIDs(orderFromResultSet(resultSet).getId()));
+			} catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
 			return tempOrder;
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -122,7 +126,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 	public void delete(Long id) {
 		try (Connection connection = databaseConnect(); 
 				PreparedStatement statement = connection.prepareStatement("DELETE FROM orders WHERE order_id = ?");
-				PreparedStatement statement2 = connection.prepareStatement("DELETE FROM order_items WHERE order_id = ");) {
+				PreparedStatement statement2 = connection.prepareStatement("DELETE FROM order_items WHERE order_id = ?");) {
 			statement.setInt(1, id.intValue());
 			statement2.setInt(1, id.intValue());
 			statement.executeUpdate();
@@ -152,12 +156,17 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 		try (Connection connection = databaseConnect(); 
 				PreparedStatement statement = connection.prepareStatement("SELECT item_id FROM order_items WHERE order_id = ?");) {
 			statement.setInt(1, orderID.intValue());
-			ResultSet resultSet = statement.executeQuery();
+			try (ResultSet resultSet = statement.executeQuery();) {
 			List<Long> itemIDs = new ArrayList<>();
 			while (resultSet.next()) {
 				itemIDs.add(resultSet.getLong(1));
 			}
 			return itemIDs;
+			}catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
+			return Collections.emptyList();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
@@ -196,9 +205,13 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			try (Connection connection = databaseConnect(); 
 					PreparedStatement statement = connection.prepareStatement("SELECT price FROM items WHERE item_id = ? LIMIT 1");) {
 				statement.setInt(1, id.intValue());
-				ResultSet resultSet = statement.executeQuery();
-				resultSet.next();
+				try (ResultSet resultSet = statement.executeQuery();){
+					resultSet.next();
 					total = total.add(BigDecimal.valueOf(resultSet.getLong(1)));
+				} catch (SQLException sqle) {
+					LOGGER.debug(sqle.getStackTrace());
+					LOGGER.error(sqle.getMessage());
+				}
 			} catch (SQLException sqle) {
 				LOGGER.debug(sqle.getStackTrace());
 				LOGGER.error(sqle.getMessage());

@@ -51,9 +51,13 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		try (Connection connection = databaseConnect(); 
 				PreparedStatement statement = connection.prepareStatement("SELECT * FROM items WHERE item_id = ?");) {
 			statement.setInt(1, id.intValue());
-			ResultSet resultSet = statement.executeQuery();
+			try (ResultSet resultSet = statement.executeQuery();){
 			resultSet.next();
 			return itemFromResultSet(resultSet);
+			} catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());

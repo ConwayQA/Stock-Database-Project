@@ -25,12 +25,12 @@ public enum Domain {
 	}
 	
 	public static String printDomains() {
-		String tests = "";
+		StringBuilder tests = new StringBuilder();
 		for (Domain domain : Domain.values()) {
-			tests += domain.getDescription();
+			tests.append(domain.getDescription());
 			LOGGER.info(domain.getDescription());
 		}
-		return tests;
+		return tests.toString();
 	}
 	
 	public static Domain getDomain() {

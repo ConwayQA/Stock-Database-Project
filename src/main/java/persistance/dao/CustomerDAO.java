@@ -49,9 +49,13 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 		try (Connection connection = databaseConnect(); 
 				PreparedStatement statement = connection.prepareStatement("SELECT * FROM customers WHERE customer_id = ?");) {
 			statement.setInt(1, id.intValue());
-			ResultSet resultSet = statement.executeQuery();
+			try (ResultSet resultSet = statement.executeQuery();){
 			resultSet.next();
 			return customerFromResultSet(resultSet);
+			} catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());

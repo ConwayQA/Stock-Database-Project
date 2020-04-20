@@ -8,7 +8,7 @@ import utilities.InputScanner;
 
 public class UserLoginController implements LoginController<User>{
 	
-	public static final Logger LOGGER = Logger.getLogger(UserController.class);
+	public static final Logger LOGGER = Logger.getLogger(UserLoginController.class);
 	
 	private LoginService<User> userLogin;
 	public UserLoginController(LoginService<User> userLogin) {

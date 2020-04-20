@@ -27,8 +27,8 @@ import utilities.InputScanner;
 
 public class StockManager {
 	
-	public boolean endApp = true;
-	public User currentUser;
+	private boolean endApp = true;
+	private User currentUser;
 	public static final Logger LOGGER = Logger.getLogger(StockManager.class);
 	
 	public void stockSystemRun() {
@@ -52,12 +52,12 @@ public class StockManager {
 			endApp = false;
 		}
 		
-		//temp endApp Change for testing.
-		endApp = false;
-		
+//		//temp endApp Change for testing.
+//		endApp = false;
+//		
 		while(!endApp) {
 			runMenu(currentUser.getUserID());
-		};
+		}
 	}
 	
 	public void runMenu(Long userID) {

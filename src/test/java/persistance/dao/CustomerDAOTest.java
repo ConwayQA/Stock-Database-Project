@@ -20,8 +20,8 @@ public class CustomerDAOTest {
 
 	@Before
 	public void init() {
-		DAOConnect.username = "root";
-		DAOConnect.password = "TryBreakingThisPassword! Hackers";
+		DAOConnect.setUsername("root");
+		DAOConnect.setPassword("TryBreakingThisPassword! Hackers");
 		DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
 	}
 	@Spy

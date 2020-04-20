@@ -45,9 +45,13 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 		try (Connection connection = databaseConnect(); 
 				PreparedStatement statement = connection.prepareStatement("SELECT * FROM user WHERE user_id = ?");) {
 			statement.setInt(1, id.intValue());
-			ResultSet resultSet = statement.executeQuery();
+			try (ResultSet resultSet = statement.executeQuery();) {
 			resultSet.next();
 			return userFromResultSet(resultSet);
+			}catch (SQLException sqle) {
+				LOGGER.debug(sqle.getStackTrace());
+				LOGGER.error(sqle.getMessage());
+			}
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
 			LOGGER.error(sqle.getMessage());
