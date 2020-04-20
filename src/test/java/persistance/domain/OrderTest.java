@@ -24,8 +24,8 @@ public class OrderTest {
 	@Before
 	public void setUp() {
 		
-		order = new Order(1L, 1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31));
-		other = new Order(1L, 1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31));
+		order = new Order(1L, 1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31), 1L);
+		other = new Order(1L, 1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31), 1L);
 	}
 	
 	@Test
@@ -173,7 +173,7 @@ public class OrderTest {
 	
 	@Test
 	public void constructorWithoutId() {
-		Order customer = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31));
+		Order customer = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31), 1L);
 		assertNull(customer.getId());
 		assertNotNull(customer.getCustomerID());
 		assertNotNull(customer.getItemIDs());
@@ -183,7 +183,7 @@ public class OrderTest {
 	
 	@Test
 	public void constructorWithoutPriceAndDate() {
-		Order customer = new Order(1L, 1L, testList);
+		Order customer = new Order(1L, 1L, testList, 1L);
 		assertNotNull(customer.getId());
 		assertNotNull(customer.getCustomerID());
 		assertNotNull(customer.getItemIDs());
@@ -193,7 +193,7 @@ public class OrderTest {
 	
 	@Test
 	public void constructorWithoutIdPriceAndDate() {
-		Order customer = new Order(1L, testList);
+		Order customer = new Order(1L, testList, 1L);
 		assertNull(customer.getId());
 		assertNotNull(customer.getCustomerID());
 		assertNotNull(customer.getItemIDs());
@@ -207,14 +207,14 @@ public class OrderTest {
 	}
 	@Test
 	public void hashCodeTestWithNull() {
-		Order customer = new Order(null, null, null, null, null);
-		Order other = new Order(null, null, null, null, null);
+		Order customer = new Order(null, null, null, null, null, null);
+		Order other = new Order(null, null, null, null, null, null);
 		assertEquals(customer.hashCode(), other.hashCode());
 	}
 	
 	@Test
 	public void toStringTest() {
-		String toString = "Order ID: 1 Customer ID: 1 Total Price: £30.0 Date Ordered: 2015-12-31";
+		String toString = "Order ID: 1 Customer ID: 1 Total Price: £30.0 Date Ordered: 2015-12-31 userID: 1";
 		assertEquals(toString, order.toString());
 	}
 

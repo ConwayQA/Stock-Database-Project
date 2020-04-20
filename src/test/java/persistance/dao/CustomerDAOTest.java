@@ -48,14 +48,14 @@ public class CustomerDAOTest {
 
 	@Test
 	public void createTest() {
-		Customer customer = new Customer("Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing");
+		Customer customer = new Customer("Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L);
 		Mockito.when(customerDAO.create(customer)).thenReturn(customer);
 		assertEquals(customer, customerDAO.create(customer));
 	}
 
 	@Test
 	public void updateTest() {
-		Customer customer = new Customer(2L, "Luke7", "Conway", "30 Test Road", "Test@tester.com", "testing");
+		Customer customer = new Customer(2L, "Luke7", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L);
 		Mockito.when(customerDAO.update(customer)).thenReturn(customer);
 		assertEquals(customer, customerDAO.update(customer));
 	}

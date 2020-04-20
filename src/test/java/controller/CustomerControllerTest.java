@@ -37,7 +37,7 @@ public class CustomerControllerTest {
 
 	@Test
 	public void readTest() {
-		Customer customer = new Customer("Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing");
+		Customer customer = new Customer("Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L);
 		String id = "1";
 		Mockito.doReturn(id).when(customerController).getInput();
 		Mockito.when(customerServices.read(1L)).thenReturn(customer);
@@ -48,9 +48,9 @@ public class CustomerControllerTest {
 	public void readAllTest() {
 		CustomerController customerController = new CustomerController(customerServices);
 		List<Customer> customers = new ArrayList<>();
-		customers.add(new Customer("Luke", "Conway", "30 Test Road", "Test@tester.com", "testing"));
-		customers.add(new Customer("Cade", "Jackson", "37 Test lane", "Testing@tester.com", "tsttst"));
-		customers.add(new Customer("Elle", "White", "25 Test street", "Tst@tstr.co.uk", "teeeeeest"));
+		customers.add(new Customer("Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L));
+		customers.add(new Customer("Luke2", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L));
+		customers.add(new Customer("Luke3", "Conway", "30 Test Road", "Test@tester.com", "testing", 2L));
 		Mockito.when(customerServices.readAll()).thenReturn(customers);
 		assertEquals(customers, customerController.readAll());
 	}
@@ -64,9 +64,9 @@ public class CustomerControllerTest {
 		String postcode = "testing";
 		Mockito.doReturn(firstName, lastName, address, email, postcode).when(customerController).getInput();
 		Customer customer = new Customer(firstName, lastName, address, email, postcode);
-		Customer savedCustomer = new Customer(1L, "Luke", "Conway", "30 Test Road", "Test@tester.com", "testing");
+		Customer savedCustomer = new Customer(1L, "Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L);
 		Mockito.when(customerServices.create(customer)).thenReturn(savedCustomer);
-		assertEquals(savedCustomer, customerController.create());
+		assertEquals(savedCustomer, customerController.create(1L));
 	}
 
 	@Test
@@ -78,9 +78,9 @@ public class CustomerControllerTest {
 		String email = "Test@tester.com";
 		String postcode = "testing";
 		Mockito.doReturn(id, firstName, lastName, address, email, postcode).when(customerController).getInput();
-		Customer customer = new Customer(1L, firstName, lastName, address, email, postcode);
+		Customer customer = new Customer(1L, firstName, lastName, address, email, postcode, 1L);
 		Mockito.when(customerServices.update(customer)).thenReturn(customer);
-		assertEquals(customer, customerController.update());
+		assertEquals(customer, customerController.update(1L));
 	}
 	
 	@Test

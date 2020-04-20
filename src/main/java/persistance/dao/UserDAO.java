@@ -22,8 +22,7 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 		String firstName = resultSet.getString("first_name");
 		String surname = resultSet.getString("last_name");
 		String username = resultSet.getString("username");
-		String password = resultSet.getString("password");
-		return new User(id, firstName, surname, username, password);
+		return new User(id, firstName, surname, username);
 	}
 	
 	@Override

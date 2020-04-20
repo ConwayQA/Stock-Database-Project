@@ -138,8 +138,8 @@ public class UserTest {
 	}
 	@Test
 	public void hashCodeTestWithNull() {
-		User user = new User(null, null, null, null);
-		User other = new User(null, null, null, null);
+		User user = new User(null, null, null, null,null);
+		User other = new User(null, null, null, null, null);
 		assertEquals(user.hashCode(), other.hashCode());
 	}
 	

@@ -24,7 +24,8 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 		String address = resultSet.getString("address");
 		String email = resultSet.getString("email");
 		String postcode = resultSet.getString("postcode");
-		return new Customer(id, firstName, lastName, address, email, postcode);
+		Long userID = resultSet.getLong("user_id");
+		return new Customer(id, firstName, lastName, address, email, postcode, userID);
 	}
 
 	@Override
@@ -67,7 +68,7 @@ public class CustomerDAO extends DAOConnect implements DAO<Customer>{
 			statement.setString(3, createCustomer.getAddress());
 			statement.setString(4, createCustomer.getEmail());
 			statement.setString(5, createCustomer.getPostcode());
-			statement.setInt(5, createCustomer.getUserID().intValue());
+			statement.setInt(6, createCustomer.getUserID().intValue());
 			statement.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {

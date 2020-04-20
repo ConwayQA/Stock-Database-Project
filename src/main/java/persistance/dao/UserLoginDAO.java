@@ -19,8 +19,7 @@ public static final Logger LOGGER = Logger.getLogger(UserDAO.class);
 		String firstName = resultSet.getString("first_name");
 		String surname = resultSet.getString("last_name");
 		String username = resultSet.getString("username");
-		String password = resultSet.getString("password");
-		return new User(id, firstName, surname, username, password);
+		return new User(id, firstName, surname, username);
 	}
 
 	@Override
@@ -44,6 +43,7 @@ public static final Logger LOGGER = Logger.getLogger(UserDAO.class);
 			resultSet.next();
 			if (password.contentEquals(resultSet.getString(1))) {
 				userLogin.setLoggedIn(true);
+				userLogin.setPassword(resultSet.getString(1));
 			}
 			return userLogin;
 		} catch (SQLException sqle) {

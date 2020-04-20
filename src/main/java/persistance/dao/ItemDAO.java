@@ -26,7 +26,8 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 		Long minPlayers = (long) resultSet.getInt("min_players");
 		Long maxPlayers = (long) resultSet.getInt("max_players");
 		Long avgPlayTime = (long) resultSet.getInt("avg_play_time");
-		return new Item(id, name, price, genre, minPlayers, maxPlayers,avgPlayTime);
+		Long userID = resultSet.getLong("user_id");
+		return new Item(id, name, price, genre, minPlayers, maxPlayers,avgPlayTime, userID);
 	}
 
 	@Override

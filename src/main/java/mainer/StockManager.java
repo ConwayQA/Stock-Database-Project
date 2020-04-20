@@ -8,11 +8,13 @@ import controller.CustomerController;
 import controller.ItemController;
 import controller.LoginController;
 import controller.OrderController;
+import controller.UserController;
 import controller.UserLoginController;
 import persistance.dao.CustomerDAO;
 import persistance.dao.DAOConnect;
 import persistance.dao.ItemDAO;
 import persistance.dao.OrderDAO;
+import persistance.dao.UserDAO;
 import persistance.dao.UserLoginDAO;
 import persistance.domain.Domain;
 import persistance.domain.User;
@@ -20,6 +22,7 @@ import service.CustomerServices;
 import service.ItemServices;
 import service.OrderServices;
 import service.UserLoginServices;
+import service.UserServices;
 import utilities.InputScanner;
 
 public class StockManager {
@@ -40,7 +43,7 @@ public class StockManager {
 		LOGGER.info("Would you like to reset the databases? [Y/N]");
 		String resetter = InputScanner.getInput();
 		if (resetter.toUpperCase().contentEquals("Y")) {
-			DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/test/resources/sql-schema.sql");
+			DAOConnect.init("jdbc:mysql://34.76.51.174:3306/ims", "root", "TryBreakingThisPassword! Hackers", "src/main/resources/sql-schema.sql");
 		}
 				
 		
@@ -79,6 +82,10 @@ public class StockManager {
 			case ORDERS:
 				OrderController orderController = new OrderController(new OrderServices(new OrderDAO()));
 				doAction(orderController, action, userID);
+				break;
+			case USERS:
+				UserController userController = new UserController(new UserServices(new UserDAO()));
+				doAction(userController, action, userID);
 				break;
 			case END:
 				break;

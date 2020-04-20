@@ -39,30 +39,30 @@ public class OrderDAOTest {
 	@Test
 	public void readAllTest() {
 		List<Order> orders = new ArrayList<>();
-		orders.add(new Order(1L, testList1, BigDecimal.valueOf(90.00), LocalDate.of(2020, 04, 17)));
-		orders.add(new Order(2L, testList2, BigDecimal.valueOf(70.00), LocalDate.of(2020, 04, 17)));
-		orders.add(new Order(3L, testList3, BigDecimal.valueOf(50.00), LocalDate.of(2020, 04, 17)));
+		orders.add(new Order(1L, testList1, BigDecimal.valueOf(90.00), LocalDate.of(2020, 04, 17), 1L));
+		orders.add(new Order(2L, testList2, BigDecimal.valueOf(70.00), LocalDate.of(2020, 04, 17), 2L));
+		orders.add(new Order(3L, testList3, BigDecimal.valueOf(50.00), LocalDate.of(2020, 04, 17), 1L));
 		Mockito.when(orderDAO.readAll()).thenReturn(orders);
 		assertEquals(orders, orderDAO.readAll());
 	}
 	
 	@Test
 	public void readTest() {
-		Order order = new Order(1L, testList1, BigDecimal.valueOf(90.00), LocalDate.of(2020, 04, 17));
+		Order order = new Order(1L, testList1, BigDecimal.valueOf(90.00), LocalDate.of(2020, 04, 17), 1L);
 		Mockito.when(orderDAO.read(1L)).thenReturn(order);
 		assertEquals(order, orderDAO.read(1L));
 	}
 
 	@Test
 	public void createTest() {
-		Order order = new Order(4L, 2L, testList4, BigDecimal.valueOf(60.00), LocalDate.of(2020, 04, 17));
+		Order order = new Order(4L, 2L, testList4, BigDecimal.valueOf(60.00), LocalDate.of(2020, 04, 17), 1L);
 		Mockito.when(orderDAO.create(order)).thenReturn(order);
 		assertEquals(order, orderDAO.create(order));
 	}
 
 	@Test
 	public void updateTest() {
-		Order order = new Order(2L, 2L, testList4, BigDecimal.valueOf(60.00), LocalDate.of(2020, 04, 17));
+		Order order = new Order(2L, 2L, testList4, BigDecimal.valueOf(60.00), LocalDate.of(2020, 04, 17), 2L);
 		Mockito.when(orderDAO.update(order)).thenReturn(order);
 		assertEquals(order, orderDAO.update(order));
 	}

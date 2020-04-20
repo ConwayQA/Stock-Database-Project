@@ -9,6 +9,21 @@ public class User {
 	private boolean loggedIn = false;
 	private String password;
 	
+	public User(String firstName, String lastName, String username) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+	}
+	
+	public User(Long userID, String firstName, String lastName, String username) {
+		super();
+		this.userID = userID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+	}
+	
 	public User(String firstName, String lastName, String username, String password) {
 		super();
 		this.firstName = firstName;

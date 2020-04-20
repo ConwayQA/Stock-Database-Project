@@ -32,30 +32,30 @@ public class ItemDAOTest {
 	@Test
 	public void readAllTest() {
 		List<Item> items = new ArrayList<>();
-		items.add(new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L));
-		items.add(new Item("Settlers of Catan", BigDecimal.valueOf(30.00), "Resource Management", 3L, 6L, 30L));
-		items.add(new Item("Pandemic", BigDecimal.valueOf(40.00), "Players vs Game", 1L, 6L, 60L));
+		items.add(new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L, 1L));
+		items.add(new Item("Settlers of Catan", BigDecimal.valueOf(30.00), "Resource Management", 3L, 6L, 30L, 1L));
+		items.add(new Item("Pandemic", BigDecimal.valueOf(40.00), "Players vs Game", 1L, 6L, 60L, 1L));
 		Mockito.when(itemDAO.readAll()).thenReturn(items);
 		assertEquals(items, itemDAO.readAll());
 	}
 	
 	@Test
 	public void readTest() {
-		Item item = new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L);
+		Item item = new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L, 1L);
 		Mockito.when(itemDAO.read(1L)).thenReturn(item);
 		assertEquals(item, itemDAO.read(1L));
 	}
 
 	@Test
 	public void createTest() {
-		Item item = new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L);
+		Item item = new Item("Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L, 1L);
 		Mockito.when(itemDAO.create(item)).thenReturn(item);
 		assertEquals(item, itemDAO.create(item));
 	}
 
 	@Test
 	public void updateTest() {
-		Item item = new Item(2L, "Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L);
+		Item item = new Item(2L, "Carcassonne", BigDecimal.valueOf(20.00), "Tile Based", 2L, 12L, 30L, 1L);
 		Mockito.when(itemDAO.update(item)).thenReturn(item);
 		assertEquals(item, itemDAO.update(item));
 	}

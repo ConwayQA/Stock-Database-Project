@@ -12,8 +12,8 @@ public class CustomerTest {
 	
 	@Before
 	public void setUp() {
-		customer = new Customer(1L, "Luke", "Conway", "30 Test Road", "Test@tester.com", "testing");
-		other = new Customer(1L, "Luke", "Conway", "30 Test Road", "Test@tester.com", "testing");
+		customer = new Customer(1L, "Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L);
+		other = new Customer(1L, "Luke1", "Conway", "30 Test Road", "Test@tester.com", "testing", 1L);
 	}
 	
 	@Test
@@ -53,11 +53,12 @@ public class CustomerTest {
 	@Test
 	public void createCustomerWithId() {
 		assertEquals(1L, customer.getId(), 0);
-		assertEquals("Luke", customer.getFirstName());
+		assertEquals("Luke1", customer.getFirstName());
 		assertEquals("Conway", customer.getLastName());
 		assertEquals("30 Test Road", customer.getAddress());
 		assertEquals("Test@tester.com", customer.getEmail());
 		assertEquals("testing", customer.getPostcode());
+		assertEquals(1L, customer.getUserID(), 0);
 	}
 	
 	@Test
@@ -144,14 +145,14 @@ public class CustomerTest {
 	}
 	@Test
 	public void hashCodeTestWithNull() {
-		Customer customer = new Customer(null, null, null, null, null, null);
-		Customer other = new Customer(null, null, null, null, null, null);
+		Customer customer = new Customer(null, null, null, null, null, null, null);
+		Customer other = new Customer(null, null, null, null, null, null, null);
 		assertEquals(customer.hashCode(), other.hashCode());
 	}
 	
 	@Test
 	public void toStringTest() {
-		String toString = "ID: 1 First Name: Luke Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing";
+		String toString = "ID: 1 First Name: Luke1 Last Name: Conway Address: 30 Test Road Email: Test@tester.com Postcode: testing userID: 1";
 		assertEquals(toString, customer.toString());
 	}
 

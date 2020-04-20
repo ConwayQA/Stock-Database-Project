@@ -17,8 +17,8 @@ public class ItemTest {
 	
 	@Before
 	public void setUp() {
-		item = new Item(1L, "Carcassonne", BigDecimal.valueOf(30.00), "Tile based", 2L, 12L, 30L);
-		other = new Item(1L, "Carcassonne", BigDecimal.valueOf(30.00), "Tile based", 2L, 12L, 30L);
+		item = new Item(1L, "Carcassonne", BigDecimal.valueOf(30.00), "Tile based", 2L, 12L, 30L, 1L);
+		other = new Item(1L, "Carcassonne", BigDecimal.valueOf(30.00), "Tile based", 2L, 12L, 30L, 1L);
 	}
 	
 	@Test
@@ -231,14 +231,15 @@ public class ItemTest {
 	}
 	@Test
 	public void hashCodeTestWithNull() {
-		Item customer = new Item(null, null, null, null, null, null, null);
-		Item other = new Item(null, null, null, null, null, null, null);
+		Item customer = new Item(null, null, null, null, null, null, null, null);
+		Item other = new Item(null, null, null, null, null, null, null, null);
 		assertEquals(customer.hashCode(), other.hashCode());
 	}
 	
 	@Test
 	public void toStringTest() {
-		String toString = "ID: 1 Name: Carcassonne price: £30.0 genre: Tile based minimum number of players: 2 maximum number of players: 12 average play time: 30";
+		String toString = "ID: 1 Name: Carcassonne price: £30.0 genre: Tile based minimum number of players: 2 "
+							+ "maximum number of players: 12 average play time: 30 userID: 1";
 		assertEquals(toString, item.toString());
 	}
 }

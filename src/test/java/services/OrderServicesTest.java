@@ -29,7 +29,7 @@ public class OrderServicesTest {
 	
 	@Test
 	public void customerServicesCreate() {
-		Order order = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31));
+		Order order = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31), 1L);
 		itemServices.create(order);
 		Mockito.verify(orderDAO, Mockito.times(1)).create(order);
 	}
@@ -47,7 +47,7 @@ public class OrderServicesTest {
 	
 	@Test
 	public void customerServicesUpdate() {
-		Order order = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31));
+		Order order = new Order(1L, testList, BigDecimal.valueOf(30.00), LocalDate.of(2015, 12, 31), 1L);
 		itemServices.update(order);
 		Mockito.verify(orderDAO, Mockito.times(1)).update(order);
 	}
