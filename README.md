@@ -65,7 +65,7 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * **Chris Perrins** - *Huge Coding inspiration and author of Hashcode methods* - [christophperrins](https://github.com/christophperrins)
-* **Nick Johnson** - *Massive influence from teaching all aspects of the development for this project.* - [nickrstewarttds(https://github.com/nickrstewarttds)
+* **Nick Johnson** - *Massive influence from teaching all aspects of the development for this project.* - [nickrstewarttds](https://github.com/nickrstewarttds)
 
 ## Project Links
 
