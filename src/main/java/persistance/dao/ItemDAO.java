@@ -64,7 +64,7 @@ public class ItemDAO extends DAOConnect implements DAO<Item> {
 	@Override
 	public Item create(Item createItem) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time, user_id) VALUES(?,?,?,?,?,?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO items(name, price, genre, min_players, max_players, avg_play_time, user_id) VALUES(?,?,?,?,?,?,?)");) {
 			statement.setString(1, createItem.getName());
 			statement.setDouble(2, createItem.getPrice().doubleValue());
 			statement.setString(3, createItem.getGenre());

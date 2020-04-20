@@ -58,11 +58,17 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 	@Override
 	public User create(User createUser) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO user(first_name, last_name, username) VALUES(?,?,?)");) {
+				PreparedStatement statement = connection.prepareStatement("INSERT INTO user(first_name, last_name, username) VALUES(?,?,?)");
+				PreparedStatement statement2 = connection.prepareStatement("INSERT INTO user_password(user_id, password) VALUES(?,AES_ENCRYPT(?,?)");) {
 			statement.setString(1, createUser.getFirstName());
 			statement.setString(2, createUser.getLastName());
 			statement.setString(3, createUser.getUsername());
 			statement.executeUpdate();
+			createUser = readLast();
+			statement2.setInt(1, createUser.getUserID().intValue());
+			statement2.setString(2, createUser.getPassword());
+			statement.setBytes(3, createUser.getUsername().getBytes());
+			statement2.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -74,12 +80,17 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 	@Override
 	public User update(User updateUser) {
 		try (Connection connection = databaseConnect(); 
-				PreparedStatement statement = connection.prepareStatement("UPDATE user SET first_name = ?, last_name = ?, username = ? WHERE user_id = ?");) {
+				PreparedStatement statement = connection.prepareStatement("UPDATE user SET first_name = ?, last_name = ?, username = ? WHERE user_id = ?");
+				PreparedStatement statement2 = connection.prepareStatement("UPDATE user_password SET user_id = ?, password = AES_ENCRYPT(?,?)");) {
 			statement.setString(1, updateUser.getFirstName());
 			statement.setString(2, updateUser.getLastName());
 			statement.setString(3, updateUser.getUsername());
 			statement.setInt(4, updateUser.getUserID().intValue());
 			statement.executeUpdate();
+			statement2.setInt(1, updateUser.getUserID().intValue());
+			statement2.setString(2, updateUser.getPassword());
+			statement2.setBytes(3, updateUser.getUsername().getBytes());
+			statement2.executeUpdate();
 			return readLast();
 		} catch (SQLException sqle) {
 			LOGGER.debug(sqle.getStackTrace());
@@ -120,6 +131,7 @@ public class UserDAO extends DAOConnect implements DAO<User>{
 		}
 		return null;
 	}
+	
 
 	
 

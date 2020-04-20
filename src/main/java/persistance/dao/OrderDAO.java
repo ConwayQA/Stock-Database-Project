@@ -82,7 +82,7 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			statement.setDate(3, Date.valueOf(createOrder.getDate()));
 			statement.setInt(4, createOrder.getUserID().intValue());
 			statement.executeUpdate();
-			removeOrderItems(createOrder);
+			createOrder = readLast();
 			writeOrderItems(createOrder);
 			return readLast();
 		} catch (SQLException sqle) {
@@ -107,8 +107,8 @@ public class OrderDAO extends DAOConnect implements DAO<Order>{
 			statement.setDate(3, Date.valueOf(updateOrder.getDate()));
 			statement.setInt(4, updateOrder.getUserID().intValue());
 			statement.setInt(5, updateOrder.getId().intValue());
-			removeOrderItems(updateOrder);
 			statement.executeUpdate();
+			removeOrderItems(updateOrder);
 			writeOrderItems(updateOrder);
 			return read(updateOrder.getId());
 		} catch (SQLException sqle) {

@@ -55,7 +55,7 @@ public static final Logger LOGGER = Logger.getLogger(ItemController.class);
 		LOGGER.info("Please enter the id of the item you would like to update");
 		Long id = Long.valueOf(getInput());
 		Item tempItem = inputItemData();
-		Item item = itemServices.create(new Item(id, tempItem.getName(), tempItem.getPrice(), tempItem.getGenre(), tempItem.getMinPlayers(),
+		Item item = itemServices.update(new Item(id, tempItem.getName(), tempItem.getPrice(), tempItem.getGenre(), tempItem.getMinPlayers(),
 													tempItem.getMaxPlayers(), tempItem.getAvgPlayTime(), userID));
 		LOGGER.info("Item updated.");
 		return item;
